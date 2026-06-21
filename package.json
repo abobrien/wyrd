@@ -1,0 +1,26 @@
+{
+  "name": "wyrd",
+  "version": "1.0.0",
+  "description": "A fantasy role-playing game",
+  "homepage": "https://github.com/abobrien/wyrd#readme",
+  "bugs": {
+    "url": "https://github.com/abobrien/wyrd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abobrien/wyrd.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"No test(s) specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "morgan": "^1.11.0"
+  }
+}
