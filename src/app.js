@@ -34,8 +34,8 @@ app.get("/health", (req, res) => {
 });
 
 // Routers
-import gameRouter from "./routes/game.js";
-app.use("/game", gameRouter);
+import appRouter from "./routes/routes.js";
+app.use("/routes", appRouter);
 
 // Fallback routes
 app.use((req, res, next) => {
@@ -46,12 +46,7 @@ app.use((req, res, next) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
-    res.status(err.statusCode || 500).json({
-        error: {
-            message: err.message || "Internal Error",
-            status: err.statusCode || 500,
-        },
-    });
+    res.render("error/404");
 });
 
 export default app;
