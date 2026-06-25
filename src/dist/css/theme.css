@@ -44,3 +44,11 @@
   font-weight: 700;
   font-style: normal;
 }
+
+/* CSS */
+.container-content {
+    margin-top: -20px;    /* pull container up under navbar */
+    padding-top: 60px;    /* prevent text from being hidden */
+    position: relative;
+    z-index: 1;
+}

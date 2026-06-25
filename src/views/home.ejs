@@ -7,95 +7,45 @@
   <%- include('./parts/head') %>
 </head>
 
-<body class="lora text-white">
+<body class="d-flex flex-column min-vh-100 bg-dark-subtle lora">
 
-  <div class="min-h-screen flex items-center justify-center isolate bg-black">
-    <!-- Background image -->
-    <img src="/img/home.png" alt="" class="absolute inset-0 -z-10 size-full object-cover opacity-65" />
-    <!-- Content -->
-    <div class="mx-auto px-8">
-      <div class="relative isolate overflow-hidden bg-black rounded-lg shadow ring-1 ring-white/15 p-10">
-        <div class="mx-auto grid gap-x-20 mx-0 max-w-none grid-cols-2 items-center">
-          <div class="row-start-2">
-            <!-- Specialization -->
-            <h2 class="lora-semibold text-3xl">
-              Barbarian
-            </h2>
-            <hr class="my-4 opacity-30">
-            <p class="text-lg/8">
-              A barbarian is a fierce warrior who relies on strength, endurance, and primal instinct rather than formal
-              training. Hardened by harsh lands and a life of constant struggle, they meet danger head-on with unmatched
-              ferocity. Whether raider, hunter, nomad, or tribal champion, barbarians survive where others perish and
-              fight with a savage determination that few can withstand.
-            </p>
-          </div>
-          <!-- Skills -->
-          <div class="row-start-3 mt-8">
-            <h2 class="lora-semibold text-xl">
-              Masteries
-            </h2>
-            <hr class="my-4 opacity-30">
-            <dl class="space-y-8 text-base/7">
-              <!-- Skill -->
-              <div class="relative">
-                <dt class="lora-semibold">
-                  Name
-                  <span class="mx-2">&bull;</span>
-                  Passive
-                  <span class="mx-2">&bull;</span>
-                  Comment
-                </dt>
-                <dd class="inline">
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                  Qui irure qui lorem cupidatat commodo. 
-                  Qui irure qui lorem cupidatat commodo. 
-                  Magna aute id magna aliqua ad ad non deserunt sunt.
-                </dd>
-              </div>
-              <!-- Skill -->
-              <div class="relative">
-                <dt class="lora-semibold">
-                  Name
-                  <span class="mx-2">&bull;</span>
-                  Action
-                  <span class="mx-2">&bull;</span>
-                  Ability + Approach
-                </dt>
-                <dd class="inline">
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                  Qui irure qui lorem cupidatat commodo. 
-                  Deserat irure qui lorem cupidatat commodo. 
-                  Sunt aute id magna aliqua ad ad non deserunt sunt.
-                </dd>
-              </div>
-              <!-- Skill -->
-              <div class="relative">
-                <dt class="lora-semibold">
-                  Name
-                  <span class="mx-2">&bull;</span>
-                  Passive
-                  <span class="mx-2">&bull;</span>
-                  Comment
-                </dt>
-                <dd class="inline">
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                  Qui irure qui lorem cupidatat commodo. 
-                  Qui irure qui lorem cupidatat commodo. 
-                  Anim aute id magna aliqua ad ad non deserunt sunt.
-                </dd>
-              </div>
-            </dl>
-          </div>
-          <!-- Specialization image -->
-          <img src="/img/barbarian.png" alt=""
-            class="relative mx-auto -z-20 rounded-md ring-1 ring-white/30 row-span-4 min-h-full object-cover" />
-        </div>
+  <nav class="navbar navbar-expand-lg sticky-top bg-dark shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="img/logo.png" class="" width="40px" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ">
+            <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">Pricing</a>
+          </li>
+        </ul>
+        <span class="navbar-text text-light opacity-75 fst-italic me-2">
+          Navbar text with an inline element
+        </span>
       </div>
     </div>
-  </div>
+  </nav>
+
+  <div class="container container-content min-vh-100 bg-light shadow">
+    <div class="row">
+      <div class="col text-center">
+        Column
+      </div>
+      <div class="col text-center">
+        Column
+      </div>
+    </div>
   </div>
 
 </body>
