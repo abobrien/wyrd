@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('./parts/head') %>
+</head>
+
+<body class="d-flex flex-column min-vh-100"">
+
+  <!-- Navbar -->
+  <%- include('./parts/navbar') %>
+
+  <!-- Content -->
+  <div class=" container-md min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
+  <div class="container-content">
+    <!-- Title -->
+    <div class="row">
+      <h3>Armor</h3>
+    </div>
+    <hr class="mt-1 border-2 border-blood">
+    <div class="row">
+      <div class="col">
+        <!-- Description -->
+        <p>
+          Equipment is governed by a hero's abilities rather than separate proficiency choices. Every hero
+          can wield Common weapons and wear Common armor from the start of the game without restriction or penalty.
+          This ensures that every hero is capable of defending themselves while rewarding ability score investments.
+        </p>
+        <p>
+          As a hero grows stronger and more capable, additional equipment becomes available naturally. More
+          demanding to bear without sacrificing mobility and control. This progression ties equipment directly to a
+          hero's natural strengths, allowing martial capability to grow
+          alongside the abilities that define it.
+        </p>
+        <hr class="border-2 border-blood">
+        <!-- Items -->
+        <h5>Common Armor</h5>
+        <p>
+          Basic protection that offers mobility and requires no exceptional fortitude.
+          It is typically inexpensive, practical, and suitable for nearly any adventure.
+        </p>
+        <p>
+          Every hero can wield Common weapons and wear Common armor from the start of the game without restriction
+          or
+          penalty.
+        </p>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="lora-semibold">
+                Padded Armor
+              </div>
+              <div class="text-body-secondary">
+                Defense
+                <i class="bi bi-1-square-fill me-5"></i>
+                Common Armor
+                <i class="bi bi-shield ms-1"></i>
+              </div>
+            </div>
+            <p class="card-text fst-italic">
+              A quilted gambeson reinforced with layers of cloth and padding.
+            </p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="lora-semibold">
+                Hide Armor
+              </div>
+              <div class="text-body-secondary">
+                Defense
+                <i class="bi bi-1-square-fill me-5"></i>
+                Common Armor
+                <i class="bi bi-shield ms-1"></i>
+              </div>
+            </div>
+            <p class="card-text fst-italic">
+              Thick hides and furs stitched together to absorb blows while remaining flexible.
+            </p>
+          </div>
+        </div>
+        <hr class="mt-1 border-2 border-blood">
+        <!-- Items -->
+        <h5>Light Armor</h5>
+        <p>
+          Light armor offers improved protection while maintaining agility.
+          It balances defense and mobility for heroes who expect regular combat.
+        </p>
+        <p>
+          Heroes wearing light armor must have 1 Resolve or higher or take all Resolve-based actions at
+          Disadvantage.
+        </p>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="lora-semibold">
+                Leather Armor
+              </div>
+              <div class="text-body-secondary">
+                Defense
+                <i class="bi bi-2-square-fill me-5"></i>
+                Light Armor
+                <i class="bi bi-shield ms-1"></i>
+              </div>
+            </div>
+            <p class="card-text fst-italic">
+              Boiled leather hardened to deflect cuts and cushion impacts.
+            </p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="lora-semibold">
+                Chain Mail
+              </div>
+              <div class="text-body-secondary">
+                Defense
+                <i class="bi bi-2-square-fill me-5"></i>
+                Light Armor
+                <i class="bi bi-shield ms-1"></i>
+              </div>
+            </div>
+            <p class="card-text fst-italic">
+              An interlocking shirt of riveted mail worn over padded clothing for dependable protection.
+            </p>
+          </div>
+        </div>
+        <hr class="mt-1 border-2 border-blood">
+        <!-- Items -->
+        <h5>Heavy Armor</h5>
+        <p>
+          Heavy armor provides the greatest protection available.
+          Its weight demands exceptional stamina but offers unmatched defense in battle.
+        </p>
+        <p>
+          The bulkiness of heavy armor interferes with the wearer’s ability to move quickly, stealthily, and freely.
+          Heroes wearing light armor must have 2 Resolve or higher or take all Resolve-based actions at
+          Disadvantage.
+          All heroes take Disadvantage on Move and Hide actions while wearing heavy armor.
+        </p>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="lora-semibold">
+                Scale Mail
+              </div>
+              <div class="text-body-secondary">
+                Defense
+                <i class="bi bi-3-square-fill me-5"></i>
+                Heavy Armor
+                <i class="bi bi-shield ms-1"></i>
+              </div>
+            </div>
+            <p class="card-text fst-italic">
+              Small metallic plates laced in overlapping rows onto a flexible leather and padded backing.
+            </p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+              <div class="lora-semibold">
+                Plate Armor
+              </div>
+              <div class="text-body-secondary">
+                Defense
+                <i class="bi bi-3-square-fill me-5"></i>
+                Heavy Armor
+                <i class="bi bi-shield ms-1"></i>
+              </div>
+            </div>
+            <p class="card-text fst-italic">
+              Articulated steel plates that protect nearly every part of the body.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

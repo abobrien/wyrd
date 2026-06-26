@@ -38,7 +38,7 @@ app.get("/health", (req, res) => {
 
 // Routers
 import appRouter from "./routes/routes.js";
-app.use("/routes", appRouter);
+app.use("/app", appRouter);
 
 // Fallback routes
 app.use((req, res, next) => {
