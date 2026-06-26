@@ -19,6 +19,9 @@ app.set("views", "./src/views");
 // Static files
 app.use(express.static("./src/dist"));
 
+// UX Framework
+app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
+
 // Routes
 app.get("/", (req, res) => {
     res.render("home", {

@@ -1,0 +1,92 @@
+/* Bootstrap */
+@use "sass:map";
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$custom-colors: (
+  "gold": #c9a227,
+  "blood": #6e2420,
+  "forest": #2d5a3d,
+);
+
+$theme-colors: map.merge($theme-colors, $custom-colors);
+
+@import "bootstrap/scss/bootstrap";
+
+/* Defaults */
+body {
+  background-image: url('../img/bg_default.png');
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Fonts */
+.cormorant-unicase {
+  font-family: "Cormorant Unicase", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cormorant-unicase-semibold {
+  font-family: "Cormorant Unicase", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.cormorant-unicase-bold {
+  font-family: "Cormorant Unicase", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lora {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lora-medium {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.lora-semibold {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.lora-bold {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* CSS */
+.container-content {
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-none {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}

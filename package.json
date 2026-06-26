@@ -15,12 +15,16 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"No test(s) specified\" && exit 1"
+    "test": "echo \"No test(s) specified\" && exit 1",
+    "build:css": "sass --load-path=node_modules src/dist/scss/theme.scss src/dist/css/theme.css",
+    "start": "npm run build:css && node server.js"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "cors": "^2.8.6",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
-    "morgan": "^1.11.0"
+    "morgan": "^1.11.0",
+    "sass": "^1.101.0"
   }
 }

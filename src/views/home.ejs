@@ -7,46 +7,104 @@
   <%- include('./parts/head') %>
 </head>
 
-<body class="d-flex flex-column min-vh-100 bg-dark-subtle lora">
+<body class="d-flex flex-column min-vh-100"">
 
-  <nav class="navbar navbar-expand-lg sticky-top bg-dark shadow">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="img/logo.png" class="" width="40px" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item ">
-            <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
-          </li>
+  <!-- Navbar -->
+  <nav class=" navbar bg-body-tertiary sticky-top p-0 shadow-lg">
+  <div class="container-fluid p-2 text-light bg-blood border-2 border-bottom border-gold">
+    <!-- Branding -->
+    <a class="navbar-brand" href="#">
+      <img src="/img/logo.png" height="40px" />
+      <span class="lora-semibold fs-5 text-light">Wyrd</span>
+    </a>
+    <!-- Menu Toggle -->
+    <button class="btn-none p-2 fs-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <i class="bi bi-list text-gold"></i>
+    </button>
+    <!-- Flyout Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header justify-content-between">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          Menu
+        </h5>
+        <button class="btn-none p-2 fs-4" type="button" data-bs-dismiss="offcanvas">
+          <i class="bi bi-x-square-fill text-blood"></i>
+        </button>
+      </div>
+      <hr class="mx-4 my-0">
+      <!-- Menu Items -->
+      <div class="offcanvas-body mt-0">
+        <ul class="navbar-nav justify-content-end flex-grow-1">
+          <!-- Home -->
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">Features</a>
+            <a class="nav-link active" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">Pricing</a>
+          <!-- Classes -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Classes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Barbarian</a></li>
+              <li><a class="dropdown-item" href="#">Paladin</a></li>
+              <li><a class="dropdown-item" href="#">Paladin</a></li>
+              <li><a class="dropdown-item" href="#">Paladin</a></li>
+              <li><a class="dropdown-item" href="#">Paladin</a></li>
+              <li><a class="dropdown-item" href="#">Paladin</a></li>
+            </ul>
           </li>
         </ul>
-        <span class="navbar-text text-light opacity-75 fst-italic me-2">
-          Navbar text with an inline element
-        </span>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container container-content min-vh-100 bg-light shadow">
-    <div class="row">
-      <div class="col text-center">
-        Column
-      </div>
-      <div class="col text-center">
-        Column
       </div>
     </div>
   </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
+    <div class="container-content">
+      <!-- Barbarian -->
+      <div class="row">
+        <h3>Barbarian</h3>
+      </div>
+      <hr class="mt-1 border-2 border-blood">
+      <div class="row">
+        <div class="col">
+          <!-- Barbarian Description -->
+          <p class="">
+            A barbarian is a fierce warrior who relies on strength, endurance, and primal instinct rather than formal
+            training. Hardened by harsh lands and a life of constant struggle, they meet danger head-on with unmatched
+            ferocity. Whether raider, hunter, nomad, or tribal champion, barbarians survive where others perish and
+            fight with a savage determination that few can withstand.
+          </p>
+          <!-- Barbarian Masteries -->
+          <h5>Masteries</h5>
+          <hr class="border-2 border-blood">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-content-center mb-2">
+                <div class="lora-semibold">
+                  Frenzy
+                </div>
+                <div class="text-body-secondary">
+                  Action
+                  <i class="bi bi-dice-6-fill ms-1"></i>
+                </div>
+              </div>
+              <p class="card-text fst-italic">
+                Unleash a flurry of attacks that overwhelms a foe with relentless aggression.
+              </p>
+              <p class="card-text">
+                Make three attacks against the same target, each with Disadvantage.
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+          <img class="img-fluid rounded" src="img/barbarian.png" />
+        </div>
+      </div>
+    </div>
 
 </body>
 
