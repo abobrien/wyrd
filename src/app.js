@@ -1,11 +1,9 @@
 import express from "express";
 import cors from "cors";
-import morgan from "morgan";
 
 const app = express();
 
 // Logging
-app.use(morgan("dev"));
 app.use(cors());
 
 // Body parsers
@@ -19,37 +17,32 @@ app.set("views", "./src/views");
 // Static files
 app.use(express.static("./src/dist"));
 
-// UX Framework
+// UX Frameworks
 app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 
 // Routes
 app.get("/", (req, res) => {
     res.render("home", {
-        title: "Wyrd",
-    });
-});
-
-app.get("/health", (req, res) => {
-    res.status(200).json({
-        status: 200,
-        message: "Server online",
+        pageTitle: "Wyrd",
     });
 });
 
 // Routers
-import appRouter from "./routes/routes.js";
+import appRouter from "./routes/appRoutes.js";
 app.use("/app", appRouter);
 
-// Fallback routes
-app.use((req, res, next) => {
-    const error = new Error(`Not Found - ${req.originalUrl}`);
-    error.statusCode = 404;
-    next(error);
-});
+import copendiumRouter from "./routes/copendiumRoutes.js";
+app.use("/copendium", copendiumRouter);
 
-// Global error handler
-app.use((err, req, res, next) => {
-    res.render("error/404");
-});
+// Fallback route & global error handler
+// app.use((req, res, next) => {
+//     const error = new Error(`Not Found - ${req.originalUrl}`);
+//     error.statusCode = 404;
+//     next(error);
+// });
+
+// app.use((err, req, res, next) => {
+//     res.render("error/404");
+// });
 
 export default app;

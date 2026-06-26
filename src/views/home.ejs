@@ -4,127 +4,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%- include('./parts/head') %>
+  <%- include("./parts/head") %>
 </head>
 
-<body class="d-flex flex-column min-vh-100"">
+<body class="d-flex flex-column min-vh-100">
 
   <!-- Navbar -->
-  <nav class=" navbar bg-body-tertiary sticky-top p-0 shadow-lg">
-  <div class="container-fluid p-2 text-light bg-blood border-2 border-bottom border-gold">
-    <!-- Branding -->
-    <a class="navbar-brand" href="#">
-      <img src="/img/logo.png" height="40px" />
-      <span class="lora-semibold fs-5 text-light">Wyrd</span>
-    </a>
-    <!-- Menu Toggle -->
-    <button class="btn-none p-2 fs-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-      <i class="bi bi-list text-gold"></i>
-    </button>
-    <!-- Flyout Menu -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
-      <div class="offcanvas-header justify-content-between">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-          Menu
-        </h5>
-        <button class="btn-none p-2 fs-4" type="button" data-bs-dismiss="offcanvas">
-          <i class="bi bi-x-square-fill text-blood"></i>
-        </button>
-      </div>
-      <hr class="mx-4 my-0">
-      <!-- Menu Items -->
-      <div class="offcanvas-body mt-0">
-        <ul class="navbar-nav justify-content-end flex-grow-1">
-          <!-- Home -->
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-          <!-- Classes -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              Classes
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Barbarian</a></li>
-              <li><a class="dropdown-item" href="#">Paladin</a></li>
-              <li><a class="dropdown-item" href="#">Paladin</a></li>
-              <li><a class="dropdown-item" href="#">Paladin</a></li>
-              <li><a class="dropdown-item" href="#">Paladin</a></li>
-              <li><a class="dropdown-item" href="#">Paladin</a></li>
+  <%- include("./parts/navbar") %>
+
+    <!-- Content -->
+    <div class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
+      <div class="container-content">
+        <!-- Hero Image -->
+        <div class="row mb-3">
+          <div class="col">
+            <h3>Introduction</h3>
+          </div>
+        </div>
+        <div class="row gap-3">
+          <div class="col-md">
+            <p>
+              Wyrd is a tabletop roleplaying game for 2-6 players set in a grounded world of ancient ruins, dangerous
+              frontiers, and forgotten mysteries. You play adventurers seeking fortune, knowledge, or purpose in a land
+              where every expedition promises new discoveries, hidden dangers, and stories worth telling.
+            </p>
+            <p>
+              At its heart, Wyrd is built around a simple philosophy: freedom without chaos. Its rules emphasize clear
+              procedures over exception-based mechanics, reducing interruptions to look up niche interactions or debate
+              rulings. Every major part of the game — from combat, exploration, intrigue, travel, research, and crafting
+              —
+              uses the same core mechanic. The unified framework produces predictable, transparent outcomes while still
+              leaving room for creativity, choice, and emergent gameplay.
+            </p>
+            <h6 class="lora-semibold">Tools of the Trade</h6>
+            <p>
+              In addition to this guide, you will need a group of people, place to play, and a few essentials.
+            </p>
+            <ul>
+              <li>
+                A set of 3 six-sided dice (3d6)
+              </li>
+              <li>
+                Your character sheet
+              </li>
+              <li>
+                Something to take notes with
+              </li>
+              <li>
+                Tokens for tracking status effects (optional)
+              </li>
             </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  </nav>
-
-  <!-- Content -->
-  <div class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
-    <div class="container-content">
-      <!-- Barbarian -->
-      <div class="row">
-        <h3>Barbarian</h3>
-      </div>
-      <hr class="mt-1 border-2 border-blood">
-      <div class="row">
-        <div class="col">
-          <!-- Barbarian Description -->
-          <p class="">
-            A barbarian is a fierce warrior who relies on strength, endurance, and primal instinct rather than formal
-            training. Hardened by harsh lands and a life of constant struggle, they meet danger head-on with unmatched
-            ferocity. Whether raider, hunter, nomad, or tribal champion, barbarians survive where others perish and
-            fight with a savage determination that few can withstand.
-          </p>
-          <!-- Barbarian Masteries -->
-          <h5>Masteries</h5>
-          <hr class="border-2 border-blood">
-          <div class="card mb-3">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-content-center mb-3">
-                <div class="lora-semibold">
-                  Primal Instinct
-                </div>
-                <div class="text-body-secondary">
-                  Passive
-                  <i class="bi bi-vignette ms-1"></i>
-                </div>
-              </div>
-              <p class="card-text fst-italic">
-                Trust your senses above reason, reacting to danger before others perceive it.
-              </p>
-              <p class="card-text">
-                You gain <u>Advantage</u> on checks to avoid natural hazards.
-              </p>
-            </div>
           </div>
-          <div class="card mb-3">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-content-center mb-3">
-                <div class="lora-semibold">
-                  Frenzy
-                </div>
-                <div class="text-body-secondary">
-                  Action
-                  <i class="bi bi-dice-6-fill ms-1"></i>
-                </div>
-              </div>
-              <p class="card-text fst-italic">
-                Unleash a flurry of attacks that overwhelms a foe with relentless aggression.
-              </p>
-              <p class="card-text">
-                Make three attacks against the same target, each with <u>Disadvantage</u>.
-                Each successful attacks deals <u>Base Damage</u> only.
-              </p>
-            </div>
+          <div class="col-md">
+            <h6 class="lora-semibold">Being the Game Master</h6>
+            <p>
+              The Game Master (GM) is the architect of the adventure. They describe what the players see, hear, and
+              encounter and how the world responds to their actions.
+            </p>
+            <p>
+              When something comes up that the rules do not cover directly, the GM makes an informed call and the game
+              keeps moving. Running a game is less about preparation than it is about quick thinking. Chronica's unified
+              roll handles nearly everything without needing a separate rule for every situation.
+            </p>
+            <h6 class="lora-semibold">Being a Player</h6>
+            <p>
+              Players control heroes in Chronica. As a player, you describe where your hero goes, what they do, and how
+              they do it.
+            </p>
+            <p>
+              When the outcome of an action is uncertain, you use the Universal Roll to determine the outcome.
+              Everything else is conversation between the people at the table.
+            </p>
+            <p>
+              Your hero is defined by their lineage, life path, and physical and mental capabilities. Throughout the
+              game, you will face dangerous situations, make difficult decisions, and occasionally fail in ways that
+              make for better stories than success would have.
+            </p>
           </div>
-
-        </div>
-        <div class="col">
-          <img class="img-fluid rounded" src="img/barbarian.png" />
         </div>
       </div>
-    </div>
 
 </body>
 

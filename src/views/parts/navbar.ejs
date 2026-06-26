@@ -11,34 +11,53 @@
         </button>
         <!-- Flyout Menu -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
-            <div class="offcanvas-header justify-content-between">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            <!-- Menu Header -->
+            <div class="offcanvas-header justify-content-between bg-blood shadow p-2 pb-0">
+                <div class="offcanvas-title fs-5 text-light" id="offcanvasNavbarLabel">
                     Menu
-                </h5>
+                </div>
                 <button class="btn-none p-2 fs-4" type="button" data-bs-dismiss="offcanvas">
-                    <i class="bi bi-x-square-fill text-blood"></i>
+                    <i class="bi bi-x-square-fill text-gold"></i>
                 </button>
             </div>
-            <hr class="mx-4 my-0">
             <!-- Menu Items -->
-            <div class="offcanvas-body mt-0">
+            <div class="offcanvas-body mt-0 bg-blood">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
                     <!-- Home -->
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <!-- Classes -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Classes
+                    <li class="nav-item rounded p-2 mb-3 bg-light border shadow">
+                        <a class="nav-link active" href="/">
+                            <span class="lora-semibold">Introduction</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Barbarian</a></li>
-                            <li><a class="dropdown-item" href="#">Paladin</a></li>
-                            <li><a class="dropdown-item" href="#">Paladin</a></li>
-                            <li><a class="dropdown-item" href="#">Paladin</a></li>
-                            <li><a class="dropdown-item" href="#">Paladin</a></li>
-                            <li><a class="dropdown-item" href="#">Paladin</a></li>
+                    </li>
+                    <!-- Engine -->
+                    <li class="nav-item rounded p-2 mb-3 bg-light border shadow">
+                        <a class="nav-link active" href="#">
+                            <span class="lora-semibold">Game Engine</span>
+                        </a>
+                    </li>
+                    <!-- Lore -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span class="lora-semibold">Lore</span>
+                        </a>
+                        <ul class="dropdown-menu expanded show border-gold">
+                            <li><a class="dropdown-item" href="/copendium/lore/cosmology">Cosmology</a></li>
+                            <li><a class="dropdown-item" href="/copendium/lore/aeld">World of Aeld</a></li>
+                            <li><a class="dropdown-item" href="/copendium/lore/life">Everyday Life</a></li>
+                        </ul>
+                    </li>
+                    <!-- Characters -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span class="lora-semibold">Characters</span>
+                        </a>
+                        <ul class="dropdown-menu expanded show border-gold">
+                            <li><a class="dropdown-item" href="#">Lineage</a></li>
+                            <li><a class="dropdown-item" href="#">Ability Scores</a></li>
+                            <li><a class="dropdown-item" href="#">Derived Scores</a></li>
+                            <li><a class="dropdown-item" href="#">Virtues & Vices</a></li>
+                            <li><a class="dropdown-item" href="#">Traits</a></li>
+                            <li><a class="dropdown-item" href="#">Progression</a></li>
                         </ul>
                     </li>
                 </ul>
