@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
 });
 
 // Routers
-import appRouter from "./routes/appRoutes.js";
-app.use("/app", appRouter);
+import gameRouter from "./routes/gameRoutes.js";
+app.use("/game", gameRouter);
 
 import copendiumRouter from "./routes/copendiumRoutes.js";
 app.use("/copendium", copendiumRouter);
