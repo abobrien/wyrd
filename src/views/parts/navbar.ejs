@@ -1,5 +1,5 @@
-<nav class=" navbar bg-body-tertiary sticky-top p-0 shadow-lg">
-    <div class="container-fluid p-2 text-light bg-blood border-2 border-bottom border-gold">
+<nav class="navbar sticky-top p-0 shadow-lg">
+    <div class="container-fluid p-2 text-light bg-blood border-bottom border-blood-dark">
         <!-- Branding -->
         <a class="navbar-brand" href="#">
             <img src="/img/logo.png" height="40px" />
@@ -10,54 +10,125 @@
             <i class="bi bi-list text-gold"></i>
         </button>
         <!-- Flyout Menu -->
-        <div class="offcanvas offcanvas-end border-2 border-start border-gold" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas offcanvas-end bg-wyrd-default" tabindex="-1" id="offcanvasNavbar">
             <!-- Menu Header -->
-            <div class="offcanvas-header justify-content-between bg-blood shadow p-2 pb-0">
-                <div class="offcanvas-title fs-5 text-light" id="offcanvasNavbarLabel">
-                    Menu
+            <div
+                class="offcanvas-header justify-content-between shadow-lg py-0 text-light bg-blood border-bottom border-blood-dark">
+                <div class="offcanvas-title lora-semibold fs-5 m-3" id="offcanvasNavbarLabel">
+                    <img src="/img/logo.png" class="bg-black rounded" height="30px" />
+                    <span class="align-middle">Wyrd</span>
                 </div>
                 <button class="btn-none p-2 fs-4" type="button" data-bs-dismiss="offcanvas">
-                    <i class="bi bi-x-square-fill text-gold"></i>
+                    <i class="bi bi-x"></i>
                 </button>
             </div>
             <!-- Menu Items -->
-            <div class="offcanvas-body mt-0 bg-blood">
+            <div class="offcanvas-body mt-0">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
                     <!-- Home -->
-                    <li class="nav-item rounded p-2 mb-3 bg-light border shadow">
+                    <li class="nav-item rounded p-2 mb-3 bg-light border border-blood shadow">
                         <a class="nav-link active" href="/game/intro">
-                            <span class="lora-semibold">Introduction</span>
+                            <span>Introduction</span>
                         </a>
                     </li>
                     <!-- Engine -->
-                    <li class="nav-item rounded p-2 mb-3 bg-light border shadow">
+                    <li class="nav-item rounded p-2 mb-3 bg-light border border-blood shadow">
                         <a class="nav-link active" href="#">
-                            <span class="lora-semibold">Game Engine</span>
+                            <span>Game Engine</span>
                         </a>
                     </li>
                     <!-- Lore -->
-                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border shadow">
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <span class="lora-semibold">Lore</span>
+                            <span>Lore</span>
                         </a>
-                        <ul class="dropdown-menu expanded show border-gold">
+                        <ul class="dropdown-menu expanded">
                             <li><a class="dropdown-item" href="/copendium/lore/cosmology">Cosmology</a></li>
-                            <li><a class="dropdown-item" href="/copendium/lore/aeld">World of Aeld</a></li>
-                            <li><a class="dropdown-item" href="/copendium/lore/life">Everyday Life</a></li>
+                            <li><a class="dropdown-item" href="/copendium/lore/history">History</a></li>
+                            <li><a class="dropdown-item" href="/copendium/lore/magic">Magic</a></li>
+                            <li><a class="dropdown-item" href="/copendium/lore/religion">Religion</a></li>
+                            <li><a class="dropdown-item" href="/copendium/lore/society">Society</a></li>
                         </ul>
                     </li>
                     <!-- Characters -->
-                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border shadow">
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <span class="lora-semibold">Characters</span>
+                            <span>Characters</span>
                         </a>
-                        <ul class="dropdown-menu expanded show border-gold">
+                        <ul class="dropdown-menu expanded">
                             <li><a class="dropdown-item" href="#">Lineage</a></li>
                             <li><a class="dropdown-item" href="#">Ability Scores</a></li>
                             <li><a class="dropdown-item" href="#">Derived Scores</a></li>
                             <li><a class="dropdown-item" href="#">Virtues & Vices</a></li>
                             <li><a class="dropdown-item" href="#">Traits</a></li>
                             <li><a class="dropdown-item" href="#">Progression</a></li>
+                        </ul>
+                    </li>
+                    <!-- Classes -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span>Traditions</span>
+                        </a>
+                        <ul class="dropdown-menu expanded">
+                            <li><a class="dropdown-item" href="#">Champion</a></li>
+                            <li><a class="dropdown-item" href="#">Pilgrim</a></li>
+                            <li><a class="dropdown-item" href="#">Poet</a></li>
+                            <li><a class="dropdown-item" href="#">Sage</a></li>
+                            <li><a class="dropdown-item" href="#">Scholar</a></li>
+                            <li><a class="dropdown-item" href="#">Scion</a></li>
+                            <li><a class="dropdown-item" href="#">Warrior</a></li>
+                        </ul>
+                    </li>
+                    <!-- Adventures -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span>Adventures</span>
+                        </a>
+                        <ul class="dropdown-menu expanded">
+                            <li><a class="dropdown-item" href="#">Exploration</a></li>
+                            <li><a class="dropdown-item" href="#">Travel & Rest</a></li>
+                            <li><a class="dropdown-item" href="#">Environments</a></li>
+                            <li><a class="dropdown-item" href="#">Hazards</a></li>
+                            <li><a class="dropdown-item" href="#">Loot & Rewards</a></li>
+                            <li><a class="dropdown-item" href="#">Passing Time</a></li>
+                        </ul>
+                    </li>
+                    <!-- Magic -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span>Magic</span>
+                        </a>
+                        <ul class="dropdown-menu expanded">
+                            <li><a class="dropdown-item" href="#">Branches of Magic</a></li>
+                            <li><a class="dropdown-item" href="#">Alchemy</a></li>
+                            <li><a class="dropdown-item" href="#">Enchantment</a></li>
+                            <li><a class="dropdown-item" href="#">Spellcasting</a></li>
+                            <li><a class="dropdown-item" href="#">Magical Resistance</a></li>
+                        </ul>
+                    </li>
+                    <!-- Encounters -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span>Conflict</span>
+                        </a>
+                        <ul class="dropdown-menu expanded">
+                            <li><a class="dropdown-item" href="#">Disposition</a></li>
+                            <li><a class="dropdown-item" href="#">Combat Phases</a></li>
+                            <li><a class="dropdown-item" href="#">Attacking</a></li>
+                            <li><a class="dropdown-item" href="#">Defending</a></li>
+                            <li><a class="dropdown-item" href="#">Conditions</a></li>
+                        </ul>
+                    </li>
+                    <!-- Downtime -->
+                    <li class="nav-item dropdown rounded p-2 mb-3 bg-light border border-blood shadow">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <span class="lora-semibold">Downtime</span>
+                        </a>
+                        <ul class="dropdown-menu expanded">
+                            <li><a class="dropdown-item" href="#">Upkeep</a></li>
+                            <li><a class="dropdown-item" href="#">Rest & Recovery</a></li>
+                            <li><a class="dropdown-item" href="#">Progression</a></li>
+                            <li><a class="dropdown-item" href="#">Activities</a></li>
                         </ul>
                     </li>
                 </ul>

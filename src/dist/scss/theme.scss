@@ -7,6 +7,8 @@
 $custom-colors: (
   "gold": #c9a227,
   "blood": #6e2420,
+  "blood-light": #852c27,
+  "blood-dark": #4b1816,
   "forest": #2d5a3d,
 );
 
@@ -16,11 +18,7 @@ $theme-colors: map.merge($theme-colors, $custom-colors);
 
 /* Defaults */
 body {
-  background-image: url('../img/bg_default.png');
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  height: auto;
 }
 
 /* Fonts */
@@ -75,6 +73,7 @@ body {
   padding-top: 40px;
   padding-left: 40px;
   padding-right: 40px;
+  padding-bottom: 40px;
   position: relative;
   z-index: 1;
 }
@@ -105,4 +104,25 @@ body {
   border-radius: 0;
   box-shadow: none;
   text-shadow: none;
+}
+
+.bg-wyrd-default {
+  background-image: url('../img/bg_default.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.dropdown-menu.animated-flyout {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  margin-left: -15px;
+  transition: opacity 0.25s ease-out, margin-left 0.25s ease-out, visibility 0.25s;
+}
+
+.dropdown-menu.animated-flyout.show {
+  opacity: 1;
+  visibility: visible;
+  margin-left: 0;
 }

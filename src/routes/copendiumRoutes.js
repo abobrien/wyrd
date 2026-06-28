@@ -17,15 +17,27 @@ router.get("/lore/cosmology", (req, res) => {
     });
 });
 
-router.get("/lore/aeld", (req, res) => {
-    res.render("copendium/lore/aeld", {
-        pageTitle: "Wyrd / Lore / Aeld"
+router.get("/lore/history", (req, res) => {
+    res.render("copendium/lore/history", {
+        pageTitle: "Wyrd / Lore / History"
     });
 });
 
-router.get("/lore/life", (req, res) => {
-    res.render("copendium/lore/life", {
-        pageTitle: "Wyrd / Lore / Everyday Life"
+router.get("/lore/religion", (req, res) => {
+    res.render("copendium/lore/religion", {
+        pageTitle: "Wyrd / Lore / Religion"
+    });
+});
+
+router.get("/lore/society", (req, res) => {
+    res.render("copendium/lore/society", {
+        pageTitle: "Wyrd / Lore / Society"
+    });
+});
+
+router.get("/lore/magic", (req, res) => {
+    res.render("copendium/lore/magic", {
+        pageTitle: "Wyrd / Lore / Magic"
     });
 });
 
