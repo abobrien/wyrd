@@ -20,10 +20,16 @@ app.use(express.static("./src/dist"));
 // UX Frameworks
 app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 
+// Session
+const session = {
+    "currentSection": "Lore"
+}
+
 // Routes
 app.get("/", (req, res) => {
     res.render("home", {
         pageTitle: "Wyrd",
+        userSession: session
     });
 });
 
