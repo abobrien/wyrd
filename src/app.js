@@ -21,9 +21,7 @@ app.use(express.static("./src/dist"));
 app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 
 // Session
-const session = {
-    "currentSection": "Lore"
-}
+import session from "./controllers/session/userSession.js";
 
 // Routes
 app.get("/", (req, res) => {
@@ -34,8 +32,8 @@ app.get("/", (req, res) => {
 });
 
 // Routers
-import gameRouter from "./routes/gameRoutes.js";
-app.use("/game", gameRouter);
+import rulesRouter from "./routes/rulebookRoutes.js";
+app.use("/rules", rulesRouter);
 
 import copendiumRouter from "./routes/copendiumRoutes.js";
 app.use("/copendium", copendiumRouter);

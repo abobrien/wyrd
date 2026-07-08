@@ -10,6 +10,7 @@ $custom-colors: (
   "blood-light": #852c27,
   "blood-dark": #4b1816,
   "forest": #2d5a3d,
+  "faded": #7e7e7e
 );
 
 $theme-colors: map.merge($theme-colors, $custom-colors);
@@ -22,24 +23,6 @@ body {
 }
 
 /* Fonts */
-.cormorant-unicase {
-  font-family: "Cormorant Unicase", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.cormorant-unicase-semibold {
-  font-family: "Cormorant Unicase", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.cormorant-unicase-bold {
-  font-family: "Cormorant Unicase", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
 .lora {
   font-family: "Lora", serif;
   font-optical-sizing: auto;

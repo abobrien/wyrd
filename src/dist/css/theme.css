@@ -43,6 +43,7 @@
   --bs-blood-light: #852c27;
   --bs-blood-dark: #4b1816;
   --bs-forest: #2d5a3d;
+  --bs-faded: #7e7e7e;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -56,6 +57,7 @@
   --bs-blood-light-rgb: 133, 44, 39;
   --bs-blood-dark-rgb: 75, 24, 22;
   --bs-forest-rgb: 45, 90, 61;
+  --bs-faded-rgb: 126, 126, 126;
   --bs-primary-text-emphasis: rgb(5.2, 44, 101.2);
   --bs-secondary-text-emphasis: rgb(43.2, 46.8, 50);
   --bs-success-text-emphasis: rgb(10, 54, 33.6);
@@ -3200,6 +3202,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #2d5a3d;
 }
 
+.btn-faded {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #7e7e7e;
+  --bs-btn-border-color: #7e7e7e;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgb(145.35, 145.35, 145.35);
+  --bs-btn-hover-border-color: rgb(138.9, 138.9, 138.9);
+  --bs-btn-focus-shadow-rgb: 107, 107, 107;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgb(151.8, 151.8, 151.8);
+  --bs-btn-active-border-color: rgb(138.9, 138.9, 138.9);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #7e7e7e;
+  --bs-btn-disabled-border-color: #7e7e7e;
+}
+
 .btn-outline-primary {
   --bs-btn-color: #0d6efd;
   --bs-btn-border-color: #0d6efd;
@@ -3418,6 +3437,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #2d5a3d;
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #2d5a3d;
+  --bs-gradient: none;
+}
+
+.btn-outline-faded {
+  --bs-btn-color: #7e7e7e;
+  --bs-btn-border-color: #7e7e7e;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #7e7e7e;
+  --bs-btn-hover-border-color: #7e7e7e;
+  --bs-btn-focus-shadow-rgb: 126, 126, 126;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #7e7e7e;
+  --bs-btn-active-border-color: #7e7e7e;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #7e7e7e;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #7e7e7e;
   --bs-gradient: none;
 }
 
@@ -5081,6 +5117,13 @@ textarea.form-control-lg {
   --bs-alert-link-color: var(--bs-forest-text-emphasis);
 }
 
+.alert-faded {
+  --bs-alert-color: var(--bs-faded-text-emphasis);
+  --bs-alert-bg: var(--bs-faded-bg-subtle);
+  --bs-alert-border-color: var(--bs-faded-border-subtle);
+  --bs-alert-link-color: var(--bs-faded-text-emphasis);
+}
+
 @keyframes progress-bar-stripes {
   0% {
     background-position-x: var(--bs-progress-height);
@@ -5549,6 +5592,19 @@ textarea.form-control-lg {
   --bs-list-group-active-color: var(--bs-forest-bg-subtle);
   --bs-list-group-active-bg: var(--bs-forest-text-emphasis);
   --bs-list-group-active-border-color: var(--bs-forest-text-emphasis);
+}
+
+.list-group-item-faded {
+  --bs-list-group-color: var(--bs-faded-text-emphasis);
+  --bs-list-group-bg: var(--bs-faded-bg-subtle);
+  --bs-list-group-border-color: var(--bs-faded-border-subtle);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: var(--bs-faded-border-subtle);
+  --bs-list-group-action-active-color: var(--bs-emphasis-color);
+  --bs-list-group-action-active-bg: var(--bs-faded-border-subtle);
+  --bs-list-group-active-color: var(--bs-faded-bg-subtle);
+  --bs-list-group-active-bg: var(--bs-faded-text-emphasis);
+  --bs-list-group-active-border-color: var(--bs-faded-text-emphasis);
 }
 
 .btn-close {
@@ -7103,6 +7159,11 @@ textarea.form-control-lg {
   background-color: RGBA(var(--bs-forest-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-bg-faded {
+  color: #000 !important;
+  background-color: RGBA(var(--bs-faded-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
 .link-primary {
   color: RGBA(var(--bs-primary-rgb), var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(var(--bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
@@ -7218,6 +7279,15 @@ textarea.form-control-lg {
 .link-forest:hover, .link-forest:focus {
   color: RGBA(36, 72, 49, var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(36, 72, 49, var(--bs-link-underline-opacity, 1)) !important;
+}
+
+.link-faded {
+  color: RGBA(var(--bs-faded-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-faded-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+.link-faded:hover, .link-faded:focus {
+  color: RGBA(152, 152, 152, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(152, 152, 152, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-body-emphasis {
@@ -7675,6 +7745,10 @@ textarea.form-control-lg {
   --bs-focus-ring-color: rgba(var(--bs-forest-rgb), var(--bs-focus-ring-opacity));
 }
 
+.focus-ring-faded {
+  --bs-focus-ring-color: rgba(var(--bs-faded-rgb), var(--bs-focus-ring-opacity));
+}
+
 .position-static {
   position: static !important;
 }
@@ -7858,6 +7932,11 @@ textarea.form-control-lg {
 .border-forest {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-forest-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-faded {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-faded-rgb), var(--bs-border-opacity)) !important;
 }
 
 .border-black {
@@ -8836,6 +8915,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-forest-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-faded {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-faded-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-black {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
@@ -9063,6 +9147,11 @@ textarea.form-control-lg {
   text-decoration-color: rgba(var(--bs-forest-rgb), var(--bs-link-underline-opacity)) !important;
 }
 
+.link-underline-faded {
+  --bs-link-underline-opacity: 1;
+  text-decoration-color: rgba(var(--bs-faded-rgb), var(--bs-link-underline-opacity)) !important;
+}
+
 .link-underline {
   --bs-link-underline-opacity: 1;
   text-decoration-color: rgba(var(--bs-link-color-rgb), var(--bs-link-underline-opacity, 1)) !important;
@@ -9179,6 +9268,11 @@ textarea.form-control-lg {
 .bg-forest {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-forest-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-faded {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-faded-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-black {
@@ -12336,24 +12430,6 @@ body {
 }
 
 /* Fonts */
-.cormorant-unicase {
-  font-family: "Cormorant Unicase", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.cormorant-unicase-semibold {
-  font-family: "Cormorant Unicase", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.cormorant-unicase-bold {
-  font-family: "Cormorant Unicase", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
 .lora {
   font-family: "Lora", serif;
   font-optical-sizing: auto;

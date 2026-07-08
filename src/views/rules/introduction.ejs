@@ -4,23 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%- include("./parts/head") %>
+  <%- include("../parts/head") %>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 bg-wyrd-default">
 
   <!-- Navbar -->
-  <%- include("./parts/navbar") %>
+  <%- include("../parts/navbar") %>
 
     <!-- Content -->
     <div class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
       <div class="container-content">
         <!-- Hero Image -->
         <div class="row mb-3">
-          <div class="col">
-            <h3>Introduction</h3>
-          </div>
+            <div class="col">
+                <h3 class="lora-semibold">Introduction</h3>
+            </div>
         </div>
+        <hr>
+        <div class="position-relative p-0">
+            <img class="img-fluid w-100 object-fit-cover" src="/img/religion.png" />
+        </div>
+        <hr>
         <div class="row gap-3">
           <div class="col-md">
             <p>
