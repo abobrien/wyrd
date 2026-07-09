@@ -40,10 +40,13 @@ router.get("/skill_checks", (req, res) => {
 });
 
 // Pregrens
+import character from "../controllers/mocks/fletch.js";
+
 router.get("/pregen/sample_character", (req, res) => {
     res.render("samples/sample_character", {
         pageTitle: "Wyrd / Samples / Sample Character",
-        userSession: session
+        userSession: session,
+        character: character
     });
 });
 
