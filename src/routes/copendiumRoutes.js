@@ -80,23 +80,9 @@ router.get("/magic/magical_resistance", (req, res) => {
 });
 
 // Character Pages
-router.get("/characters/bloodline", (req, res) => {
-    res.render("characters/bloodlines", {
-        pageTitle: "Wyrd / Characters / Bloodline",
-        userSession: session
-    });
-});
-
-router.get("/characters/bloodline/human", (req, res) => {
-    res.render("characters/bloodlines/human", {
-        pageTitle: "Wyrd / Characters / Bloodline / Human",
-        userSession: session
-    });
-});
-
-router.get("/characters/bloodline/skeld", (req, res) => {
-    res.render("characters/bloodlines/skeld", {
-        pageTitle: "Wyrd / Characters / Bloodline / Skeld",
+router.get("/characters/lineage", (req, res) => {
+    res.render("characters/lineage", {
+        pageTitle: "Wyrd / Characters / Lineage",
         userSession: session
     });
 });
@@ -104,13 +90,6 @@ router.get("/characters/bloodline/skeld", (req, res) => {
 router.get("/characters/ability_scores", (req, res) => {
     res.render("characters/ability_scores", {
         pageTitle: "Wyrd / Characters / Ability Scores",
-        userSession: session
-    });
-});
-
-router.get("/characters/derived_characteristics", (req, res) => {
-    res.render("characters/derived_characteristics", {
-        pageTitle: "Wyrd / Characters / Derived Characteristics",
         userSession: session
     });
 });
@@ -125,21 +104,6 @@ router.get("/characters/skill_paths", (req, res) => {
 router.get("/characters/progression", (req, res) => {
     res.render("characters/progression", {
         pageTitle: "Wyrd / Characters / Progression",
-        userSession: session
-    });
-});
-
-// Bloodline Pages
-router.get("/bloodline/human", (req, res) => {
-    res.render("copendium/bloodline/human", {
-        pageTitle: "Wyrd / Bloodlines / Human",
-        userSession: session
-    });
-});
-
-router.get("/bloodline/skeld", (req, res) => {
-    res.render("copendium/bloodline/skeld", {
-        pageTitle: "Wyrd / Bloodlines / Human",
         userSession: session
     });
 });

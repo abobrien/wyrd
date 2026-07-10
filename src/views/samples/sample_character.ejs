@@ -7,85 +7,84 @@
     <%- include("../parts/head") %>
 </head>
 
-<body class="d-flex flex-column min-vh-100 bg-wyrd-default">
+<body class="d-flex flex-column min-vh-100 bg-wyrd-default lora">
 
     <!-- Navbar -->
     <%- include("../parts/navbar") %>
 
         <!-- Content -->
-        <div class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
+        <main class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
             <div class="container-content">
+
                 <!-- Title -->
+                <section class="row mb-3 align-items-end">
+                    <div class="col">
+                        <h3 class="lora-semibold mb-0">
+                            <%= character.name %>
+                        </h3>
+                    </div>
+                    <div class="col text-end">
+                        <div class="lora-medium text-muted">
+
+                        </div>
+                    </div>
+                </section>
+
+                <hr>
+
                 <div class="row mb-3">
-                    <div class="col align-self-end">
-                        <h3 class="lora-semibold">Fletch</h3>
+                    <div class="col-md">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-6"></span>
+                            <span class="placeholder col-8"></span>
+                        </p>
                     </div>
-                    <div class="col-4 text-end me-1">
-                        <h6 class="lora-semibold small">Progress</h6>
-                        <div class="fs-5">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                        </div>
+                    <div class="col-md">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-6"></span>
+                            <span class="placeholder col-8"></span>
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-6"></span>
+                            <span class="placeholder col-8"></span>
+                        </p>
                     </div>
                 </div>
+
                 <hr>
-                <div class="row gap-3">
-                    <div class="col-md">
-                        <div class="row">
-                            <!-- Background -->
-                            <div class="col">
-                                <h6 class="lora-semibold small">Ancestry</h6>
-                                <p>Sylvan</p>
-                            </div>
-                            <div class="col">
-                                <h6 class="lora-semibold small">Bloodline</h6>
-                                <p>Gnome</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <!-- Base Scores -->
-                        <h6 class="lora-semibold small">Base Size</h6>
-                        <div class="container text-center mb-5">
-                            <div class="row gap-1">
-                                <div class="col-sm border rounded-pill">
-                                    1
-                                </div>
-                                <div class="col-sm border rounded-pill">
-                                    2
-                                </div>
-                                <div class="col-sm border rounded-pill bg-blood border-blood text-light">
-                                    3
-                                </div>
-                                <div class="col-sm border rounded-pill">
-                                    4
-                                </div>
-                                <div class="col-sm border rounded-pill">
-                                    5
-                                </div>
-                                <div class="col-sm border rounded-pill">
-                                    6
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <!-- Portrait -->
-                        <img class="img-fluid object-fit-cover rounded" src="/img/sample_character.png" />
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-8">
-                        Test
-                    </div>
+
+                <!-- Gear -->
+                <div class="row mb-3">
+                    <!-- Equipped -->
                     <div class="col-md"></div>
+                    <!-- Inventory -->
+                    <div class="col-md">
+                        <%- include("../parts/inventory") %>
+                    </div>
                 </div>
+
             </div>
-        </div>
+        </main>
 
 </body>
 

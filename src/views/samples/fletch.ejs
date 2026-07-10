@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../parts/head") %>
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-wyrd-default">
+
+    <!-- Navbar -->
+    <%- include("../parts/navbar") %>
+
+        <!-- Content -->
+        <div class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
+            <div class="container-content">
+
+                <div class="row mb-3 align-items-end">
+                    <div class="col">
+                        <h3 class="lora-semibold mb-0">Fletch</h3>
+                    </div>
+                    <div class="col text-end">
+                        <div class="lora-medium text-muted">
+                            Level 1
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row gap-3">
+                    <div class="col-md">
+                        <!-- Background -->
+                        <div class="row">
+                            <div class="d-grid gap-1" style="grid-template-columns: repeat(2, 1fr);">
+                                <div>
+                                    <h6 class="lora-semibold">Ancestry</h6>
+                                    <div class="lora">
+                                        Sylvan
+                                    </div>
+                                </div>
+                                <div>
+                                    <h6 class="lora-semibold">Bloodline</h6>
+                                    <div class="lora">
+                                        Gnome
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- Defenses -->
+                        <div class="row">
+                            <div class="col">
+                                <h6 class="lora-semibold">Defenses</h6>
+                                <div class="d-grid gap-1 mt-3" style="grid-template-columns: repeat(2, 1fr);">
+                                    <div>
+                                        <h6 class="lora-medium small text-muted">Vitality</h6>
+                                        <span class="lora">
+                                            <i class="bi bi-suit-heart-fill"></i>
+                                            18
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h6 class="lora-medium small text-muted">Defense</h6>
+                                        <span class="lora">
+                                            <i class="bi bi-shield-fill"></i>
+                                            13
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- Resistances -->
+                        <div class="row">
+                            <div class="col">
+                                <h6 class="lora-semibold">Resistances</h6>
+                                <div class="d-grid gap-1 mt-3" style="grid-template-columns: repeat(3, 1fr);">
+                                    <div>
+                                        <h6 class="lora-medium small text-muted">Vigor</h6>
+                                        <span class="lora">
+                                            15
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h6 class="lora-medium small text-muted">Focus</h6>
+                                        <span class="lora">
+                                            14
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h6 class="lora-medium small text-muted">Will</h6>
+                                        <span class="lora">
+                                            16
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ability Grid -->
+                    <div class="col-md">
+                        <div class="d-grid gap-1 lh-1" style="grid-template-columns: repeat(4, minmax(5rem, 1fr));">
+                            <!-- Cornerstone -->
+                            <div class="text-center align-self-center">
+                                <img class="img-fluid object-fit-contain w-50 h-50" src="/img/tokens/items/wand.png" />
+                            </div>
+                            <!-- Approaches -->
+                            <% character.approaches.forEach(approach=> { %>
+                                <div class="card text-center shadow-sm bg-blood text-light">
+                                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                                        <small class="lora mb-1">
+                                            <%= approach.label %>
+                                        </small>
+                                        <span class="lora-semibold">
+                                            <%= approach.value %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <% }) %>
+                                    <!-- Aptitudes -->
+                                    <% character.aptitudes.forEach(aptitude=> { %>
+                                        <div class="card text-center shadow-sm bg-blood text-light">
+                                            <div
+                                                class="card-body d-flex flex-column justify-content-center align-items-center">
+                                                <small class="lora mb-1">
+                                                    <%= aptitude.label %>
+                                                </small>
+                                                <span class="lora-semibold">
+                                                    <%= aptitude.value %>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- Intersections -->
+                                        <% character.approaches.forEach(approach=> { %>
+                                            <div class="card text-center shadow-sm">
+                                                <div class="card-body d-flex justify-content-center align-items-center">
+                                                    <span class="lora-semibold">
+                                                        <%= aptitude.value + approach.value %>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <% }) %>
+                                                <% }) %>
+                        </div>
+                    </div>
+                    <!-- Portrait -->
+                    <div class="col-md d-none d-lg-block">
+                        <img class="img-fluid object-fit-cover h-100 rounded shadow-sm"
+                            src="/img/sample_character.png" />
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Inventory -->
+                <h6 class="lora-semibold mb-3">Inventory</h6>
+                <div class="row mb-4">
+                    <div class="col-md">
+                        <!-- Item -->
+                        <div class="card position-relative overflow-hidden">
+                            <!-- Item Category -->
+                            <img src="/img/tokens/items/sword.png" class="position-absolute top-0 end-0 m-2 p-1"
+                                style="width: 32px; z-index: 0;" alt="">
+                            <!-- Item Content -->
+                            <div class="card-body position-relative">
+                                <div class="position-relative" style="z-index: 1;">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="lora-semibold">Shortsword</h6>
+                                    </div>
+                                    <p class="lora fst-italic small text-muted">
+                                        A balanced steel blade with a straight edge
+                                    </p>
+                                    <hr>
+                                    <div class="d-grid gap-3" style="grid-template-columns: repeat(4, 1fr);">
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Range</h6>
+                                            <div class="lora">Close</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Target</h6>
+                                            <div class="lora">One</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Damage</h6>
+                                            <div class="lora">4</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Type</h6>
+                                            <div class="lora">
+                                                <img src="/img/tokens/damage/slashing.png" width="14px" />
+                                                Slashing
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <!-- Item -->
+                        <div class="card position-relative overflow-hidden">
+                            <!-- Item Category -->
+                            <img src="/img/tokens/items/bow.png" class="position-absolute top-0 end-0 m-2 p-1"
+                                style="width: 32px; z-index: 0;" alt="">
+                            <!-- Item Content -->
+                            <div class="card-body position-relative">
+                                <div class="position-relative" style="z-index: 1;">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="lora-semibold">Shortbow</h6>
+                                    </div>
+                                    <p class="lora fst-italic small text-muted">
+                                        A lightweight, compact wooden bow with a braided cord
+                                    </p>
+                                    <hr>
+                                    <div class="d-grid gap-3" style="grid-template-columns: repeat(4, 1fr);">
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Range</h6>
+                                            <div class="lora">Short</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Target</h6>
+                                            <div class="lora">One</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Damage</h6>
+                                            <div class="lora">4</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Type</h6>
+                                            <div class="lora">
+                                                <img src="/img/tokens/damage/piercing.png" width="14px" />
+                                                Piercing
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md">
+                        <!-- Item -->
+                        <div class="card position-relative overflow-hidden">
+                            <!-- Item Category -->
+                            <img src="/img/tokens/items/mace.png" class="position-absolute top-0 end-0 m-2 p-1"
+                                style="width: 32px; z-index: 0;" alt="">
+                            <!-- Item Content -->
+                            <div class="card-body position-relative">
+                                <div class="position-relative" style="z-index: 1;">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="lora-semibold">Mace</h6>
+                                    </div>
+                                    <p class="lora fst-italic small text-muted">
+                                        A heavy steel head mounted on a sturdy haft
+                                    </p>
+                                    <hr>
+                                    <div class="d-grid gap-3" style="grid-template-columns: repeat(4, 1fr);">
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Range</h6>
+                                            <div class="lora">Close</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Target</h6>
+                                            <div class="lora">One</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Damage</h6>
+                                            <div class="lora">6</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Type</h6>
+                                            <div class="lora">
+                                                <img src="/img/tokens/damage/blunt.png" width="14px" />
+                                                Blunt
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <!-- Item -->
+                        <div class="card position-relative overflow-hidden">
+                            <!-- Item Category -->
+                            <img src="/img/tokens/items/bomb.png" class="position-absolute top-0 end-0 m-2 p-1"
+                                style="width: 32px; z-index: 0;" alt="">
+                            <!-- Item Content -->
+                            <div class="card-body position-relative">
+                                <div class="position-relative" style="z-index: 1;">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="lora-semibold">Dragon's Breath</h6>
+                                    </div>
+                                    <p class="lora fst-italic small text-muted">
+                                        A volatile mixture of oil and alchemical reagents
+                                    </p>
+                                    <hr>
+                                    <div class="d-grid gap-3" style="grid-template-columns: repeat(4, 1fr);">
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Range</h6>
+                                            <div class="lora">Short</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Target</h6>
+                                            <div class="lora">Zone</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Damage</h6>
+                                            <div class="lora">3</div>
+                                        </div>
+                                        <div>
+                                            <h6 class="lora-medium small text-muted mb-1">Type</h6>
+                                            <div class="lora">
+                                                <img src="/img/tokens/damage/fire.png" width="14px" />
+                                                Fire
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <span class="lora">
+                                        <span class="lora-semibold">
+                                            Lake of Fire
+                                            &mdash;
+                                        </span>
+                                        The targeted zone gains the <u>Burning</u> feature for the duration of the
+                                        encounter.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Skills -->
+                <h6 class="lora-semibold mb-3">Skills</h6>
+                <!-- Physique -->
+                <div class="row mb-4">
+                    <div class="col-md">
+                        <!-- Item -->
+                        <div class="card overflow-hidden">
+                            <!-- Item Content -->
+                            <div class="card-body">
+                                <div class="d-flex gap-2 justify-content-between">
+                                    <div>
+                                        <h6 class="lora-semibold">Multishot</h6>
+                                        <p class="lora fst-italic small text-muted">
+                                            Fire a spread of arrows that can strike multiple foes an strike multiple
+                                            foes
+                                        </p>
+                                    </div>
+                                    <div class="w-25">
+                                        <img class="img-fluid object-fit-contain opacity-50"
+                                            src="/img/tokens/item_mastery/bow/multishot.png" width="64px" />
+                                    </div>
+                                </div>
+                                <h6 class="lora-medium small text-muted mb-1">Legendary Action</h6>
+                                <div class="lora">
+                                    Choose up to 3 targets in range and make an attack against each.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <!-- Item -->
+                        <div class="card overflow-hidden">
+                            <!-- Item Content -->
+                            <div class="card-body">
+                                <div class="d-flex gap-2 justify-content-between">
+                                    <div>
+                                        <h6 class="lora-semibold">Blade Oil</h6>
+                                        <p class="lora fst-italic small text-muted">
+                                            Fire a spread of arrows that can strike multiple foes an strike multiple
+                                            foes
+                                        </p>
+                                    </div>
+                                    <div class="w-25">
+                                        <img class="img-fluid object-fit-contain opacity-50"
+                                            src="/img/tokens/item_mastery/sword/blade_oil.png" width="64px" />
+                                    </div>
+                                </div>
+                                <h6 class="lora-medium small text-muted mb-1">Enchantment</h6>
+                                <div class="lora">
+                                    Unlocks applying oils to Slashing weapons which set conditions on enemies when hit.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md">
+
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+
+            </div>
+        </div>
+
+</body>
+
+</html>

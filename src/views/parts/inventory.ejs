@@ -1,0 +1,185 @@
+<!-- Inventory -->
+<div class="card">
+
+    <!-- Header -->
+    <div class="card-header">
+        <img class="me-1" src="/img/tokens/items/sword.png" height="18px" alt="Inventory">
+        <span class="lora-semibold align-middle">
+            Inventory
+        </span>
+    </div>
+
+    <!-- Body -->
+    <div class="card-body">
+
+        <!-- Grid -->
+        <div id="inventoryGrid" class="inventory-grid">
+
+            <!-- Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+                <div class="inventory-item" draggable="true" data-item-id="sword" title="Sword">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="lora-semibold">Rapier</div>
+                            <div class="small fst-italic">
+                                A slender, pointed dueling sword designed for thrusting
+                            </div>
+                        </div>
+                        <div class="col-md align-self-center">
+                            <div class="small">
+                                Physical
+                            </div>
+                            <div class="small">
+                                Piercing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    const inventoryGrid = document.getElementById("inventoryGrid");
+
+    let draggedItem = null;
+    let originalSlot = null;
+
+    inventoryGrid.addEventListener("dragstart", event => {
+        const item = event.target.closest(".inventory-item");
+
+        if (!item) {
+            return;
+        }
+
+        draggedItem = item;
+        originalSlot = item.parentElement;
+
+        item.classList.add("dragging");
+
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData(
+            "text/plain",
+            item.dataset.itemId ?? ""
+        );
+    });
+
+    inventoryGrid.addEventListener("dragend", event => {
+        const item = event.target.closest(".inventory-item");
+
+        item?.classList.remove("dragging");
+
+        inventoryGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(slot => slot.classList.remove("drag-over"));
+
+        draggedItem = null;
+        originalSlot = null;
+    });
+
+    inventoryGrid.addEventListener("dragover", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot || !draggedItem) {
+            return;
+        }
+
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+
+        inventoryGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(currentSlot => {
+                if (currentSlot !== slot) {
+                    currentSlot.classList.remove("drag-over");
+                }
+            });
+
+        slot.classList.add("drag-over");
+    });
+
+    inventoryGrid.addEventListener("dragleave", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot) {
+            return;
+        }
+
+        const nextElement = event.relatedTarget;
+
+        if (!nextElement || !slot.contains(nextElement)) {
+            slot.classList.remove("drag-over");
+        }
+    });
+
+    inventoryGrid.addEventListener("drop", event => {
+        const targetSlot = event.target.closest(".inventory-slot");
+
+        if (!targetSlot || !draggedItem || !originalSlot) {
+            return;
+        }
+
+        event.preventDefault();
+        targetSlot.classList.remove("drag-over");
+
+        if (targetSlot === originalSlot) {
+            return;
+        }
+
+        const targetItem = targetSlot.querySelector(".inventory-item");
+
+        /*
+         * If the destination is occupied, move that item
+         * into the dragged item's original slot.
+         */
+        if (targetItem) {
+            originalSlot.appendChild(targetItem);
+        }
+
+        targetSlot.appendChild(draggedItem);
+
+        saveInventory();
+    });
+
+    function saveInventory() {
+        const inventory = [...inventoryGrid.children].map(slot => {
+            const item = slot.querySelector(".inventory-item");
+            return item?.dataset.itemId ?? null;
+        });
+
+        console.log("Inventory state:", inventory);
+
+        // Optional:
+        // localStorage.setItem("inventory", JSON.stringify(inventory));
+    }
+</script>

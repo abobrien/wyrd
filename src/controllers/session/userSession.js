@@ -1,5 +1,5 @@
 const session = {
-    "currentSection": "Adventures"
+    "currentSection": "Characters"
 };
 
 export default session;

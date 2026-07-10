@@ -40,7 +40,7 @@ router.get("/skill_checks", (req, res) => {
 });
 
 // Pregrens
-import character from "../controllers/mocks/fletch.js";
+import character from "../controllers/mocks/sample_character.js";
 
 router.get("/pregen/sample_character", (req, res) => {
     res.render("samples/sample_character", {
