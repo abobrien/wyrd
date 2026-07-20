@@ -22,6 +22,21 @@ body {
   height: auto;
 }
 
+.nav-pills .nav-link {
+  color: black
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #e9ecef;
+  color: #6e2420;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  background-color: #6e2420 !important;
+  color: $gray-100 !important;
+}
+
 /* Fonts */
 .lora {
   font-family: "Lora", serif;
@@ -111,7 +126,7 @@ body {
 .inventory-item {
   width: 100%;
   height: 100%;
-  padding: 2%;
+  padding: 3%;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--bs-border-color);
@@ -120,6 +135,7 @@ body {
   box-shadow: 0.25rem rgba(0, 0, 0, 0.15);
   cursor: grab;
   user-select: none;
+  font-size: .875em;
 }
 
 .inventory-item:active {
@@ -133,6 +149,20 @@ body {
 .inventory-item img {
   // object-fit: contain;
   pointer-events: none;
+}
+
+.inventory-item-static {
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.25rem;
+  background: var(--bs-body-bg);
+  box-shadow: 0.25rem rgba(0, 0, 0, 0.15);
+  user-select: none;
+  font-size: .875em;
 }
 
 .slot-label {

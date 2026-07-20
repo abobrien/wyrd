@@ -3,10 +3,303 @@
 
     <!-- Header -->
     <div class="card-header">
-        <img class="me-1" src="/img/tokens/items/sword.png" height="18px" alt="Inventory">
-        <span class="lora-semibold align-middle">
-            Inventory
-        </span>
+        <div class="row">
+            <div class="col align-self-center">
+                <img class="me-1" src="/img/ui/money.png" height="18px" alt="Inventory">
+                <span class="lora-semibold align-middle">Inventory</span>
+            </div>
+            <div class="col text-end pe-1">
+                <button type="button" class="btn btn-sm btn-outline-blood" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasInventory">
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flyout Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasInventory" style="padding-top: 80px;">
+
+        <!-- Menu Header -->
+        <div class="offcanvas-header pb-0">
+            <h5 class="offcanvas-title" id="offcanvasInventoryLabel">
+                Gear
+            </h5>
+        </div>
+
+        <div class="offcanvas-body">
+
+            <!-- Menu Filters -->
+            <ul class="nav nav-pills mb-3 small" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-armor-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-armor" type="button" role="tab">
+                        Armor
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-shields-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-shields" type="button" role="tab">
+                        Shields
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-weapons-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-weapons" type="button" role="tab">
+                        Weapons
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-tools-tab" data-bs-toggle="pill" data-bs-target="#pills-tools"
+                        type="button" role="tab">
+                        Tools
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Menu Items -->
+            <div class="tab-content" id="pills-tabContent">
+
+                <!-- Armor -->
+                <div class="tab-pane fade show active" id="pills-armor" role="tabpanel" tabindex="0">
+
+                    <% for (let i=0; i < items.armor.length ; i++) { %>
+
+                        <!-- Items -->
+                        <div class="inventory-item shadow-sm mb-2" data-item-id="dataItem-armor<%= items.armor[i].id %>">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="lora-semibold">
+                                        <%= items.armor[i].name %>
+                                    </div>
+                                </div>
+                                <div class="col-md text-end align-self-center">
+                                    <div class="fst-italic text-muted">
+                                        <%= items.armor[i].type %>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Defense
+                                    </div>
+                                    <%= items.armor[i].defense %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Weight
+                                    </div>
+                                    <%= items.armor[i].weight %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Coverage
+                                    </div>
+                                    <%= items.armor[i].coverage %>
+                                </div>
+                            </div>
+                            <% if (items.armor[i].special) { %>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            <%= items.armor[i].special.name %>
+                                                &mdash;
+                                                <%= items.armor[i].special.type %>
+                                        </div>
+                                        <%= items.armor[i].special.description %>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <% } %>
+
+                </div>
+
+                <!-- Shields -->
+                <div class="tab-pane fade" id="pills-shields" role="tabpanel" tabindex="0">
+
+                    <% for (let i=0; i < items.shields.length ; i++) { %>
+
+                        <!-- Items -->
+                        <div class="inventory-item-static shadow-sm mb-2">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="lora-semibold">
+                                        <%= items.shields[i].name %>
+                                    </div>
+                                </div>
+                                <div class="col-md text-end align-self-center">
+                                    <div class="fst-italic text-muted">
+                                        <%= items.shields[i].type %>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Defense
+                                    </div>
+                                    <%= items.shields[i].defense %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Weight
+                                    </div>
+                                    <%= items.shields[i].weight %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Coverage
+                                    </div>
+                                    <%= items.shields[i].coverage %>
+                                </div>
+                            </div>
+                            <% if (items.shields[i].special) { %>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            <%= items.shields[i].special.name %>
+                                                &mdash;
+                                                <%= items.shields[i].special.type %>
+                                        </div>
+                                        <%= items.shields[i].special.description %>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <% } %>
+
+                </div>
+
+                <!-- Weapons -->
+                <div class="tab-pane fade" id="pills-weapons" role="tabpanel" tabindex="0">
+
+                    <% for (let i=0; i < items.weapons.length ; i++) { %>
+
+                        <!-- Items -->
+                        <div class="inventory-item-static shadow-sm mb-2">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="lora-semibold">
+                                        <%= items.weapons[i].name %>
+                                    </div>
+                                </div>
+                                <div class="col-md text-end align-self-center">
+                                    <div class="fst-italic text-muted">
+                                        <%= items.weapons[i].type %>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Damage
+                                    </div>
+                                    <%= items.weapons[i].damage %>
+                                        <%= items.weapons[i].damage_type %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Target
+                                    </div>
+                                    <%= items.weapons[i].target %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Range
+                                    </div>
+                                    <%= items.weapons[i].range %>
+                                </div>
+                            </div>
+                            <% if (items.weapons[i].special) { %>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            <%= items.weapons[i].special.name %>
+                                                &mdash;
+                                                <%= items.weapons[i].special.type %>
+                                        </div>
+                                        <%= items.weapons[i].special.description %>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <% } %>
+
+                </div>
+
+                <!-- Tools -->
+                <div class="tab-pane fade" id="pills-tools" role="tabpanel" tabindex="0">
+
+                    <% for (let i=0; i < items.tools.length ; i++) { %>
+
+                        <!-- Items -->
+                        <div class="inventory-item-static shadow-sm mb-2">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="lora-semibold">
+                                        <%= items.tools[i].name %>
+                                    </div>
+                                </div>
+                                <div class="col-md text-end align-self-center">
+                                    <div class="fst-italic text-muted">
+                                        <%= items.tools[i].type %>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Target
+                                    </div>
+                                    <%= items.tools[i].target %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Range
+                                    </div>
+                                    <%= items.tools[i].range %>
+                                </div>
+                                <div class="col">
+                                    <div class="lora-semibold">
+                                        Effect
+                                    </div>
+                                    <%= items.tools[i].effect %>
+                                </div>
+                            </div>
+                            <% if (items.tools[i].special) { %>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            <%= items.tools[i].special.name %>
+                                                &mdash;
+                                                <%= items.tools[i].special.type %>
+                                        </div>
+                                        <%= items.tools[i].special.description %>
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <% } %>
+
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <!-- Body -->
@@ -18,10 +311,13 @@
             <!-- Slot -->
             <div class="inventory-slot">
                 <span class="slot-label">Empty</span>
-                <div class="inventory-item" draggable="true" data-item-id="sword" title="Sword">
+                <!-- Item -->
+                <div class="inventory-item" draggable="true" data-item-id="inventory-item-1" title="">
                     <div class="row">
                         <div class="col-md">
-                            <div class="lora-semibold">Rapier</div>
+                            <div class="lora-semibold">Longsword</div>
+                        </div>
+                        <div class="col-md text-end align-self-center">
                             <div class="fst-italic text-muted">
                                 Common Weapon
                             </div>
@@ -30,19 +326,19 @@
                     <hr class="my-2">
                     <div class="row d-flex">
                         <div class="col">
-                            <div class="lora-semibold small">
-                                Threat
-                            </div>
-                            Single Target
-                        </div>
-                        <div class="col">
-                            <div class="lora-semibold small">
+                            <div class="lora-semibold">
                                 Damage
                             </div>
                             6 Physical
                         </div>
                         <div class="col">
-                            <div class="lora-semibold small">
+                            <div class="lora-semibold">
+                                Threat
+                            </div>
+                            Single Target
+                        </div>
+                        <div class="col">
+                            <div class="lora-semibold">
                                 Grip
                             </div>
                             One-Handed
@@ -54,21 +350,79 @@
             <!-- Slot -->
             <div class="inventory-slot">
                 <span class="slot-label">Empty</span>
+                <!-- Item -->
+                <div class="inventory-item" draggable="true" data-item-id="inventory-item-1" title="">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="lora-semibold">Chain Mail</div>
+                        </div>
+                        <div class="col-md text-end align-self-center">
+                            <div class="fst-italic text-muted">
+                                Common Armor
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-2">
+                    <div class="row d-flex">
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Defense
+                            </div>
+                            4
+                        </div>
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Weight
+                            </div>
+                            Medium
+                        </div>
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Coverage
+                            </div>
+                            Full Body
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Slot -->
             <div class="inventory-slot">
                 <span class="slot-label">Empty</span>
-            </div>
-
-            <!-- Slot -->
-            <div class="inventory-slot">
-                <span class="slot-label">Empty</span>
-            </div>
-
-            <!-- Slot -->
-            <div class="inventory-slot">
-                <span class="slot-label">Empty</span>
+                <!-- Item -->
+                <div class="inventory-item" draggable="true" data-item-id="inventory-item-1" title="">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="lora-semibold">Buckler</div>
+                        </div>
+                        <div class="col-md text-end align-self-center">
+                            <div class="fst-italic text-muted">
+                                Common Shield
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-2">
+                    <div class="row d-flex">
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Defense
+                            </div>
+                            1
+                        </div>
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Weight
+                            </div>
+                            Light
+                        </div>
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Coverage
+                            </div>
+                            Active
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Slot -->
