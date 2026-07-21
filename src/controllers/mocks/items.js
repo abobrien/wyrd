@@ -31,7 +31,7 @@ const items = {
         },
         {
             "id": "3pnnfo1vg7",
-            "name": "Minotaur Hides",
+            "name": "Minotaur Hide",
             "type": "Rare",
             "defense": 2,
             "weight": "Light",
@@ -182,6 +182,18 @@ const items = {
                 "name": "Consume",
                 "type": "Minor Action",
                 "description": "Recover Vitality equal to 4 + Physique + Resolve."
+            }
+        },
+        {
+            "name": "Potion of Resistance",
+            "type": "Common",
+            "target": "Self",
+            "range": "Self",
+            "effect": "Instant",
+            "special": {
+                "name": "Consume",
+                "type": "Minor Action",
+                "description": "Gain Resistance to the associated damage type."
             }
         },
     ]
