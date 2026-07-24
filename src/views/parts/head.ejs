@@ -18,5 +18,11 @@
 <!-- Bootstrap JS -->
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<!-- Bootstrap Popovers -->
+<script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>
+
 <!-- Custom CSS -->
 <link rel="stylesheet" href="/css/theme.css">

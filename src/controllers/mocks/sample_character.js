@@ -1,5 +1,5 @@
 const character = {
-    name: "Sample",
+    name: "Bilson",
     level: 1,
     ancestry: "Human",
     heritage: "Imperial",

@@ -2,199 +2,176 @@ const items = {
     armor: [
         {
             "id": "5tiuiewzok",
-            "name": "Quilted Armor",
-            "type": "Common",
+            "name": "Gambeson",
+            "grade": "Common",
             "defense": 1,
-            "weight": "Light",
-            "coverage": "Full Body"
-        },
-        {
-            "id": "upyy0xfs41",
-            "name": "Inscribed Robes",
-            "type": "Common",
-            "defense": 1,
-            "weight": "Light",
-            "coverage": "Full Body",
-            "special": {
-                "name": "Arcane Resistance",
-                "type": "Passive",
-                "description": "Gain Resistance to Arcane Magical damage."
-            }
+            "weight": "Light"
         },
         {
             "id": "ymcn9di7qg",
             "name": "Leather Armor",
-            "type": "Common",
+            "grade": "Common",
             "defense": 2,
-            "weight": "Light",
-            "coverage": "Full Body"
-        },
-        {
-            "id": "3pnnfo1vg7",
-            "name": "Minotaur Hide",
-            "type": "Rare",
-            "defense": 2,
-            "weight": "Light",
-            "coverage": "Full Body",
-            "special": {
-                "name": "Minotaur Resistance",
-                "type": "Passive",
-                "description": "Gain Resistance to all Elemental damage."
-            }
+            "weight": "Light"
         },
         {
             "id": "odkokbqy0q",
             "name": "Chain Mail",
-            "type": "Common",
+            "grade": "Common",
             "defense": 3,
-            "weight": "Medium",
-            "coverage": "Full Body"
-        },
-        {
-            "id": "s97g1gpf36",
-            "name": "Mithral Chain Mail",
-            "type": "Rare",
-            "defense": 3,
-            "weight": "Light",
-            "coverage": "Full Body",
-            "special": {
-                "name": "Mithral Resistance",
-                "type": "Passive",
-                "description": "Gain Resistance to Sharp Physical damage."
-            }
+            "weight": "Medium"
         },
         {
             "id": "a7wzah2rfp",
             "name": "Scale Mail",
-            "type": "Common",
+            "grade": "Common",
             "defense": 4,
-            "weight": "Medium",
-            "coverage": "Full Body"
+            "weight": "Medium"
         },
         {
             "id": "rvqs5l0rp4",
             "name": "Half Plate",
-            "type": "Common",
+            "grade": "Common",
             "defense": 5,
-            "weight": "Heavy",
-            "coverage": "Full Body",
+            "weight": "Heavy"
         },
         {
             "id": "8mqyo3ix5u",
             "name": "Full Plate",
-            "type": "Common",
+            "grade": "Common",
             "defense": 6,
-            "weight": "Heavy",
-            "coverage": "Full Body"
+            "weight": "Heavy"
         },
     ],
-    shields: [
+    shield: [
         {
+            "id": "f3a8d9b2c1",
             "name": "Buckler",
-            "type": "Common",
+            "grade": "Common",
             "defense": 1,
             "weight": "Light",
-            "coverage": "Shield",
-            "special": {
-                "name": "Deflect",
-                "type": "Reaction",
-                "description": "Roll 3d6 + Physique + Discipline against an incoming attack. On success, negate all Physical damage."
-            }
+            "properties": [
+                "Shield",
+                "Throwable"
+            ]
         },
         {
+            "id": "x9Hj38KqL2",
             "name": "Targe",
-            "type": "Common",
+            "grade": "Common",
             "defense": 2,
             "weight": "Medium",
-            "coverage": "Shield"
+            "properties": [
+                "Shield"
+            ]
         },
         {
-            "name": "Heater",
-            "type": "Common",
+            "id": "8Fwz51PmR7",
+            "name": "Pavise",
+            "grade": "Common",
             "defense": 2,
             "weight": "Medium",
-            "coverage": "Shield"
+            "properties": [
+                "Cover",
+                "Deployable"
+            ]
         },
     ],
-    weapons: [
+    weapon: [
         {
+            "id": "1I4BXbSs",
             "name": "Dagger",
-            "type": "Common",
+            "grade": "Common",
             "damage": 2,
             "damage_type": "Sharp",
             "target": "Enemy",
             "range": "Close"
         },
         {
-            "name": "Hatchet",
-            "type": "Common",
+            "id": "n0Kw4Jks",
+            "name": "Axe",
+            "grade": "Common",
             "damage": 2,
             "damage_type": "Blunt",
             "target": "Enemy",
             "range": "Close",
-            "special": {
-                "name": "Throwable",
-                "type": "Property",
-                "description": "May be used as a thrown weapon."
-            }
+            "properties": [
+                "Throwable"
+            ]
         },
         {
-            "name": "Shortsword",
-            "type": "Common",
+            "id": "rkHefLMG",
+            "name": "Sword",
+            "grade": "Common",
             "damage": 4,
             "damage_type": "Sharp",
             "target": "Enemy",
             "range": "Close"
         },
         {
+            "id": "Ge8wtuAX",
             "name": "Mace",
-            "type": "Common",
+            "grade": "Common",
             "damage": 4,
             "damage_type": "Blunt",
             "target": "Enemy",
             "range": "Close"
         },
         {
-            "name": "Longsword",
-            "type": "Common",
+            "id": "OmLySuQf",
+            "name": "Spear",
+            "grade": "Common",
             "damage": 6,
             "damage_type": "Sharp",
             "target": "Enemy",
-            "range": "Close"
+            "range": "Close",
+            "properties": [
+                "Two-Handed"
+            ]
         },
         {
-            "name": "Maul",
-            "type": "Common",
+            "id": "Gl8EUWtd",
+            "name": "Warhammer",
+            "grade": "Common",
             "damage": 6,
             "damage_type": "Blunt",
             "target": "Enemy",
-            "range": "Close"
+            "range": "Close",
+            "properties": [
+                "Two-Handed"
+            ]
         },
     ],
-    tools: [
+    tool: [
         {
+            "id": "xN3zY9Vp",
             "name": "Potion of Healing",
-            "type": "Common",
+            "grade": "Common",
             "target": "Self",
-            "range": "Self",
             "effect": "Instant",
-            "special": {
-                "name": "Consume",
-                "type": "Minor Action",
-                "description": "Recover Vitality equal to 4 + Physique + Resolve."
-            }
+            "properties": [
+                "Consumable"
+            ],
+            "special": "Recover Vitality equal to 4 + Physique + Resolve."
         },
         {
+            "id": "Km7tW2qX",
             "name": "Potion of Resistance",
-            "type": "Common",
+            "grade": "Common",
             "target": "Self",
-            "range": "Self",
             "effect": "Instant",
-            "special": {
-                "name": "Consume",
-                "type": "Minor Action",
-                "description": "Gain Resistance to the associated damage type."
-            }
+            "properties": [
+                "Consumable"
+            ]
+        },
+    ],
+    pack: [
+        {
+            "id": "bbzyHC69",
+            "name": "Expeditionary Pack",
+            "grade": "Common",
+            "inventory_slots": 6,
+            "rests": 3
         },
     ]
 }

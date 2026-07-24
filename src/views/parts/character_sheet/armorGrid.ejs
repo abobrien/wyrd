@@ -1,0 +1,156 @@
+<!-- Armor Grid -->
+<div class="card">
+
+    <!-- Body -->
+    <div class="card-body">
+
+        <!-- Grid -->
+        <div id="armorGrid" class="inventory-grid">
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Armor</span>
+                <div class="inventory-item" draggable="true">
+                    <div class="lora-semibold">
+                        Leather Armor
+                    </div>
+                    <hr class="my-2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Defense
+                            </div>
+                            2
+                        </div>
+                        <div class="col">
+                            <div class="lora-semibold">
+                                Weight
+                            </div>
+                            Light
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Accessory</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    const armorGrid = document.getElementById("armorGrid");
+
+    armorGrid.addEventListener("dragstart", event => {
+        const item = event.target.closest(".inventory-item");
+
+        if (!item) {
+            return;
+        }
+
+        draggedItem = item;
+        originalSlot = item.parentElement;
+
+        item.classList.add("dragging");
+
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData(
+            "text/plain",
+            item.dataset.itemId ?? ""
+        );
+    });
+
+    armorGrid.addEventListener("dragend", event => {
+        const item = event.target.closest(".inventory-item");
+
+        item?.classList.remove("dragging");
+
+        armorGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(slot => slot.classList.remove("drag-over"));
+
+        draggedItem = null;
+        originalSlot = null;
+    });
+
+    armorGrid.addEventListener("dragover", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot || !draggedItem) {
+            return;
+        }
+
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+
+        armorGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(currentSlot => {
+                if (currentSlot !== slot) {
+                    currentSlot.classList.remove("drag-over");
+                }
+            });
+
+        slot.classList.add("drag-over");
+    });
+
+    armorGrid.addEventListener("dragleave", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot) {
+            return;
+        }
+
+        const nextElement = event.relatedTarget;
+
+        if (!nextElement || !slot.contains(nextElement)) {
+            slot.classList.remove("drag-over");
+        }
+    });
+
+    armorGrid.addEventListener("drop", event => {
+        const targetSlot = event.target.closest(".inventory-slot");
+
+        if (!targetSlot || !draggedItem || !originalSlot) {
+            return;
+        }
+
+        event.preventDefault();
+        targetSlot.classList.remove("drag-over");
+
+        if (targetSlot === originalSlot) {
+            return;
+        }
+
+        const targetItem = targetSlot.querySelector(".inventory-item");
+
+        /*
+         * If the destination is occupied, move that item
+         * into the dragged item's original slot.
+         */
+        if (targetItem) {
+            originalSlot.appendChild(targetItem);
+        }
+
+        targetSlot.appendChild(draggedItem);
+
+        saveArmor();
+    });
+
+    function saveArmor() {
+        const inventory = [...armorGrid.children].map(slot => {
+            const item = slot.querySelector(".inventory-item");
+            return item?.dataset.itemId ?? null;
+        });
+
+        console.log("Inventory state:", inventory);
+
+        // Optional:
+        // localStorage.setItem("inventory", JSON.stringify(inventory));
+    }
+</script>

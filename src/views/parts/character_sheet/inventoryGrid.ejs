@@ -1,0 +1,217 @@
+<!-- Inventory -->
+<div class="card">
+
+    <!-- Header -->
+    <div class="card-header">
+        <div class="row">
+            <div class="col align-self-center">
+                <img class="me-1" src="/img/ui/money.png" height="24px" alt="Inventory">
+                <span class="lora-semibold align-middle">Inventory</span>
+            </div>
+            <div class="col text-end pe-1">
+                <button type="button" class="btn btn-sm btn-outline-blood" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasInventory">
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="card-body">
+
+        <!-- Grid -->
+        <div id="inventoryGrid" class="inventory-grid">
+
+            <!-- Pack -->
+            <div class="inventory-slot border-blood">
+                <span class="slot-label">Pack</span>
+                <div class="inventory-item" draggable="true">
+                    <div class="lora-semibold">
+                        Expeditionary Pack
+                    </div>
+                    <hr class="my-2">
+                    <div class="row mx-auto gap-2">
+                        <div class="col text-center border rounded">
+                            <div class="lora-semibold">
+                                Storage
+                            </div>
+                            6
+                        </div>
+                        <div class="col text-center border rounded">
+                            <div class="lora-semibold">
+                                Rests
+                            </div>
+                            4
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    const inventoryGrid = document.getElementById("inventoryGrid");
+
+    inventoryGrid.addEventListener("dragstart", event => {
+        const item = event.target.closest(".inventory-item");
+
+        if (!item) {
+            return;
+        }
+
+        draggedItem = item;
+        originalSlot = item.parentElement;
+
+        item.classList.add("dragging");
+
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData(
+            "text/plain",
+            item.dataset.itemId ?? ""
+        );
+    });
+
+    inventoryGrid.addEventListener("dragend", event => {
+        const item = event.target.closest(".inventory-item");
+
+        item?.classList.remove("dragging");
+
+        inventoryGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(slot => slot.classList.remove("drag-over"));
+
+        draggedItem = null;
+        originalSlot = null;
+    });
+
+    inventoryGrid.addEventListener("dragover", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot || !draggedItem) {
+            return;
+        }
+
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+
+        inventoryGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(currentSlot => {
+                if (currentSlot !== slot) {
+                    currentSlot.classList.remove("drag-over");
+                }
+            });
+
+        slot.classList.add("drag-over");
+    });
+
+    inventoryGrid.addEventListener("dragleave", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot) {
+            return;
+        }
+
+        const nextElement = event.relatedTarget;
+
+        if (!nextElement || !slot.contains(nextElement)) {
+            slot.classList.remove("drag-over");
+        }
+    });
+
+    inventoryGrid.addEventListener("drop", event => {
+        const targetSlot = event.target.closest(".inventory-slot");
+
+        if (!targetSlot || !draggedItem || !originalSlot) {
+            return;
+        }
+
+        event.preventDefault();
+        targetSlot.classList.remove("drag-over");
+
+        if (targetSlot === originalSlot) {
+            return;
+        }
+
+        const targetItem = targetSlot.querySelector(".inventory-item");
+
+        /*
+         * If the destination is occupied, move that item
+         * into the dragged item's original slot.
+         */
+        if (targetItem) {
+            originalSlot.appendChild(targetItem);
+        }
+
+        targetSlot.appendChild(draggedItem);
+
+        saveInventory();
+    });
+
+    function saveInventory() {
+        const inventory = [...inventoryGrid.children].map(slot => {
+            const item = slot.querySelector(".inventory-item");
+            return item?.dataset.itemId ?? null;
+        });
+
+        console.log("Inventory state:", inventory);
+
+        // Optional:
+        // localStorage.setItem("inventory", JSON.stringify(inventory));
+    }
+</script>
+
+<script>
+    function broadcastSelf(id) {
+        // Inline item dataset
+        const itemDatasetElem = document.getElementById(id);
+        const itemDataset = itemDatasetElem.dataset;
+
+        // Full item data
+        const itemDataElem = document.getElementById(`${id}-data`);
+        const itemData = JSON.parse(itemDataElem.innerHTML);
+        console.log(itemData);
+
+        // Add to player 
+        // TODO
+
+        // Notify player
+        const toast = document.getElementById("liveToast");
+
+        const toastMessage = document.getElementById("liveToastMessage");
+        toastMessage.innerHTML = `<span class="lora-semibold">${itemData.name}</span> added to inventory.`
+
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast);
+        toastBootstrap.show();
+    };
+</script>

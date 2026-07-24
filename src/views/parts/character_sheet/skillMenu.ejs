@@ -1,0 +1,104 @@
+<!-- Flyout Menu -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSkills">
+
+    <!-- Menu Header -->
+    <div class="offcanvas-header flex-column border-bottom shadow bg-blood text-light">
+        <h5 class="offcanvas-title mb-3" id="offcanvasInventoryLabel">
+            Skills
+        </h5>
+
+        <!-- Menu Filters -->
+        <ul class="nav nav-pills nav-fill w-100 sticky-top small bg-light p-1 rounded" id="pills-tab" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-physique-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-physique" type="button" role="tab">
+                    Physique
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-intellect-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-intellect" type="button" role="tab">
+                    Intellect
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-psyche-tab" data-bs-toggle="pill" data-bs-target="#pills-psyche"
+                    type="button" role="tab">
+                    Psyche
+                </button>
+            </li>
+
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- Menu Items -->
+    <div class="offcanvas-body pt-3">
+        <div class="tab-content" id="pills-tabContent">
+
+            <!-- Physique -->
+            <div class="tab-pane fade show active" id="pills-physique" role="tabpanel" tabindex="0">
+
+                <% for (let i=0; i < skills.physique.length ; i++) { %>
+
+                    <!-- Items -->
+                    <div class="inventory-item shadow-sm mb-2" id="inventory-item-<%= skills.physique[i].id %>"
+                        data-item-id="<%= skills.physique[i].id %>" onclick="broadcastSelf(this.id)">
+                        <div id="inventory-item-<%= skills.physique[i].id %>-data" hidden>
+                            <%= JSON.stringify(skills.physique[i]) %>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="lora-semibold">
+                                    <%= skills.physique[i].name %>
+                                </div>
+                                <hr class="my-2">
+                                <p>
+                                    <%= skills.physique[i].description %>
+                                </p>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="lora-semibold">
+                                            Effect
+                                        </div>
+                                        <%= skills.physique[i].effect %>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Roll
+                                        </div>
+                                        3d6 + <%= skills.physique[i].ability %> + <%= skills.physique[i].approach %>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="badge text-bg-light border me-1 p-2">
+                                            Level <%= skills.physique[i].level %>
+                                        </span>
+                                        <% if (skills.physique[i].properties) { %>
+                                            <% for (let j=0; j < skills.physique[i].properties.length; j++) { %>
+                                                <span class="badge text-bg-blood-dark border border-blood me-1 p-2">
+                                                    <%= skills.physique[i].properties[j] %>
+                                                </span>
+                                                <% } %>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+        </div>
+    </div>
+</div>

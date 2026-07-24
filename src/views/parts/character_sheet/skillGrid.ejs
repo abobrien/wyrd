@@ -1,0 +1,172 @@
+<!-- Flyout Menu -->
+<div class="card">
+
+    <!-- Menu Header -->
+    <div class="card-header">
+        <div class="row">
+            <div class="col align-self-center">
+                <img class="me-1" src="/img/ui/mind.png" height="24px" alt="">
+                <span class="lora-semibold align-middle">Skills</span>
+            </div>
+            <div class="col text-end pe-1">
+                <button type="button" class="btn btn-sm btn-outline-blood" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasSkills">
+                    <i class="bi bi-plus-lg"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="card-body">
+
+        <!-- Grid -->
+        <div id="skillGrid" class="inventory-grid">
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+            <!-- Item Slot -->
+            <div class="inventory-slot">
+                <span class="slot-label">Empty</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    const skillGrid = document.getElementById("skillGrid");
+
+    skillGrid.addEventListener("dragstart", event => {
+        const item = event.target.closest(".inventory-item");
+
+        if (!item) {
+            return;
+        }
+
+        draggedItem = item;
+        originalSlot = item.parentElement;
+
+        item.classList.add("dragging");
+
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData(
+            "text/plain",
+            item.dataset.itemId ?? ""
+        );
+    });
+
+    skillGrid.addEventListener("dragend", event => {
+        const item = event.target.closest(".inventory-item");
+
+        item?.classList.remove("dragging");
+
+        skillGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(slot => slot.classList.remove("drag-over"));
+
+        draggedItem = null;
+        originalSlot = null;
+    });
+
+    skillGrid.addEventListener("dragover", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot || !draggedItem) {
+            return;
+        }
+
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+
+        skillGrid
+            .querySelectorAll(".inventory-slot.drag-over")
+            .forEach(currentSlot => {
+                if (currentSlot !== slot) {
+                    currentSlot.classList.remove("drag-over");
+                }
+            });
+
+        slot.classList.add("drag-over");
+    });
+
+    skillGrid.addEventListener("dragleave", event => {
+        const slot = event.target.closest(".inventory-slot");
+
+        if (!slot) {
+            return;
+        }
+
+        const nextElement = event.relatedTarget;
+
+        if (!nextElement || !slot.contains(nextElement)) {
+            slot.classList.remove("drag-over");
+        }
+    });
+
+    skillGrid.addEventListener("drop", event => {
+        const targetSlot = event.target.closest(".inventory-slot");
+
+        if (!targetSlot || !draggedItem || !originalSlot) {
+            return;
+        }
+
+        event.preventDefault();
+        targetSlot.classList.remove("drag-over");
+
+        if (targetSlot === originalSlot) {
+            return;
+        }
+
+        const targetItem = targetSlot.querySelector(".inventory-item");
+
+        /*
+         * If the destination is occupied, move that item
+         * into the dragged item's original slot.
+         */
+        if (targetItem) {
+            originalSlot.appendChild(targetItem);
+        }
+
+        targetSlot.appendChild(draggedItem);
+
+        saveSkill();
+    });
+
+    function saveSkill() {
+        const inventory = [...skillGrid.children].map(slot => {
+            const item = slot.querySelector(".inventory-item");
+            return item?.dataset.itemId ?? null;
+        });
+
+        console.log("Inventory state:", inventory);
+
+        // Optional:
+        // localStorage.setItem("inventory", JSON.stringify(inventory));
+    }
+</script>

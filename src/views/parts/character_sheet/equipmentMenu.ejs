@@ -1,0 +1,302 @@
+<!-- Flyout Menu -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasInventory">
+
+    <!-- Menu Header -->
+    <div class="offcanvas-header flex-column border-bottom shadow bg-blood text-light">
+        <h5 class="offcanvas-title mb-3" id="offcanvasInventoryLabel">
+            Equipment
+        </h5>
+
+        <!-- Menu Filters -->
+        <ul class="nav nav-pills nav-fill w-100 sticky-top small bg-light p-1 rounded" id="pills-tab" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-armor-tab" data-bs-toggle="pill" data-bs-target="#pills-armor"
+                    type="button" role="tab">
+                    Armor
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-shields-tab" data-bs-toggle="pill" data-bs-target="#pills-shields"
+                    type="button" role="tab">
+                    Shields
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-weapons-tab" data-bs-toggle="pill" data-bs-target="#pills-weapons"
+                    type="button" role="tab">
+                    Weapons
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-tools-tab" data-bs-toggle="pill" data-bs-target="#pills-tools"
+                    type="button" role="tab">
+                    Trinkets
+                </button>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Menu Items -->
+    <div class="offcanvas-body pt-3">
+        <div class="tab-content" id="pills-tabContent">
+
+            <!-- Armor -->
+            <div class="tab-pane fade show active" id="pills-armor" role="tabpanel" tabindex="0">
+
+                <% for (let i=0; i < items.armor.length ; i++) { %>
+
+                    <!-- Items -->
+                    <div class="inventory-item shadow-sm mb-2" id="inventory-item-<%= items.armor[i].id %>"
+                        data-item-id="<%= items.armor[i].id %>" onclick="broadcastSelf(this.id)">
+                        <div id="inventory-item-<%= items.armor[i].id %>-data" hidden>
+                            <%= JSON.stringify(items.armor[i]) %>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="lora-semibold">
+                                    <%= items.armor[i].name %>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Defense
+                                        </div>
+                                        <%= items.armor[i].defense %> Armor
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Weight
+                                        </div>
+                                        <%= items.armor[i].weight %>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="badge text-bg-light border me-1 p-2">
+                                            <%= items.armor[i].grade %>
+                                        </span>
+                                        <% if (items.armor[i].properties) { %>
+                                            <% for (let j=0; j < items.armor[i].properties.length; j++) { %>
+                                                <span class="badge text-bg-blood-dark border border-blood me-1 p-2">
+                                                    <%= items.armor[i].properties[j] %>
+                                                </span>
+                                                <% } %>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col overflow-hidden">
+                                <img src="/img/items/detail/<%= items.armor[i].name.replaceAll(' ', '_') %>.png"
+                                    class="w-100 h-100 object-fit-cover rounded">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+            <!-- Shields -->
+            <div class="tab-pane fade" id="pills-shields" role="tabpanel" tabindex="0">
+
+                <% for (let i=0; i < items.shield.length ; i++) { %>
+
+                    <!-- Items -->
+                    <div class="inventory-item shadow-sm mb-2" id="inventory-item-<%= items.shield[i].id %>"
+                        data-item-id="<%= items.shield[i].id %>" onclick="broadcastSelf(this.id)">
+                        <div id="inventory-item-<%= items.shield[i].id %>-data" hidden>
+                            <%= JSON.stringify(items.shield[i]) %>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="lora-semibold">
+                                    <%= items.shield[i].name %>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Defense
+                                        </div>
+                                        <%= items.shield[i].defense %> Armor
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Weight
+                                        </div>
+                                        <%= items.shield[i].weight %>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="badge text-bg-light border me-1 p-2">
+                                            <%= items.shield[i].grade %>
+                                        </span>
+                                        <% if (items.shield[i].properties) { %>
+                                            <% for (let j=0; j < items.shield[i].properties.length; j++) { %>
+                                                <span class="badge text-bg-blood-dark border border-blood me-1 p-2">
+                                                    <%= items.shield[i].properties[j] %>
+                                                </span>
+                                                <% } %>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col overflow-hidden">
+                                <img src="/img/items/detail/<%= items.shield[i].name.replaceAll(' ', '_') %>.png"
+                                    class="w-100 h-100 object-fit-cover rounded">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+            <!-- Weapons -->
+            <div class="tab-pane fade" id="pills-weapons" role="tabpanel" tabindex="0">
+
+                <% for (let i=0; i < items.weapon.length ; i++) { %>
+
+                    <!-- Items -->
+                    <div class="inventory-item shadow-sm mb-2" id="inventory-item-<%= items.weapon[i].id %>"
+                        data-item-id="<%= items.weapon[i].id %>" onclick="broadcastSelf(this.id)">
+                        <div id="inventory-item-<%= items.weapon[i].id %>-data" hidden>
+                            <%= JSON.stringify(items.weapon[i]) %>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="lora-semibold">
+                                    <%= items.weapon[i].name %>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Damage
+                                        </div>
+                                        <%= items.weapon[i].damage %>
+                                            <%= items.weapon[i].damage_type %>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Target
+                                        </div>
+                                        <%= items.weapon[i].range %>
+                                            <%= items.weapon[i].target %>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="badge text-bg-light border me-1 p-2">
+                                            <%= items.weapon[i].grade %>
+                                        </span>
+                                        <% if (items.weapon[i].properties) { %>
+                                            <% for (let j=0; j < items.weapon[i].properties.length; j++) { %>
+                                                <span class="badge text-bg-blood-dark border border-blood me-1 p-2">
+                                                    <%= items.weapon[i].properties[j] %>
+                                                </span>
+                                                <% } %>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col overflow-hidden">
+                                <img src="/img/items/detail/<%= items.weapon[i].name.replaceAll(' ', '_') %>.png"
+                                    class="w-100 h-100 rounded">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+            <!-- Tools -->
+            <div class="tab-pane fade" id="pills-tools" role="tabpanel" tabindex="0">
+
+                <% for (let i=0; i < items.tool.length ; i++) { %>
+
+                    <!-- Items -->
+                    <div class="inventory-item shadow-sm mb-2" id="inventory-item-<%= items.tool[i].id %>"
+                        data-item-id="<%= items.tool[i].id %>" onclick="broadcastSelf(this.id)">
+                        <div id="inventory-item-<%= items.tool[i].id %>-data" hidden>
+                            <%= JSON.stringify(items.tool[i]) %>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="d-flex justify-content-between">
+                                    <div class="lora-semibold">
+                                        <%= items.tool[i].name %>
+                                    </div>
+                                    <i class="bi bi-bookmark-fill" data-bs-container="body" data-bs-toggle="popover"
+                                        data-bs-placement="top" data-bs-content="<%= items.tool[i].special %>"></i>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Effect
+                                        </div>
+                                        <%= items.tool[i].effect %>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold">
+                                            Target
+                                        </div>
+                                        <%= items.tool[i].target %>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="badge text-bg-light border me-1 p-2">
+                                            <%= items.tool[i].grade %>
+                                        </span>
+                                        <% if (items.tool[i].properties) { %>
+                                            <% for (let j=0; j < items.tool[i].properties.length; j++) { %>
+                                                <span class="badge text-bg-blood-dark border border-blood me-1 p-2">
+                                                    <%= items.tool[i].properties[j] %>
+                                                </span>
+                                                <% } %>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col overflow-hidden">
+                                <img src="/img/items/detail/<%= items.tool[i].name.replaceAll(' ', '_') %>.png"
+                                    class="w-100 h-100 object-fit-cover rounded">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+        </div>
+    </div>
+</div>

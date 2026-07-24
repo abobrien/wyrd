@@ -12,81 +12,261 @@
     <!-- Navbar -->
     <%- include("../parts/navbar") %>
 
-        <!-- Content -->
-        <main class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
-            <div class="container-content">
-
-                <!-- Title -->
-                <section class="row mb-3 align-items-end">
-                    <div class="col">
-                        <h3 class="lora-semibold mb-0">
-                            <%= character.name %>
-                        </h3>
-                    </div>
-                    <div class="col text-end">
-                        <div class="lora-medium text-muted">
-
-                        </div>
-                    </div>
-                </section>
-
-                <hr>
-
-                <div class="row mb-3">
-                    <div class="col-md">
-                        <h5 class="card-title placeholder-glow">
-                            <span class="placeholder col-6"></span>
-                        </h5>
-                        <p class="card-text placeholder-glow">
-                            <span class="placeholder col-7"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-6"></span>
-                            <span class="placeholder col-8"></span>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <h5 class="card-title placeholder-glow">
-                            <span class="placeholder col-6"></span>
-                        </h5>
-                        <p class="card-text placeholder-glow">
-                            <span class="placeholder col-7"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-6"></span>
-                            <span class="placeholder col-8"></span>
-                        </p>
-                    </div>
-                    <div class="col-md">
-                        <h5 class="card-title placeholder-glow">
-                            <span class="placeholder col-6"></span>
-                        </h5>
-                        <p class="card-text placeholder-glow">
-                            <span class="placeholder col-7"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-6"></span>
-                            <span class="placeholder col-8"></span>
-                        </p>
+        <!-- Toasts -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" data-bs-dismiss="toast">
+                <div class="toast-header bg-blood">
+                    <div class="lora-medium text-light me-auto">
+                        <img class="" src="/img/logo.png" height="24px">
+                        Character Sheet Updated
                     </div>
                 </div>
-
-                <hr>
-
-                <!-- Gear -->
-                <div class="row mb-3">
-                    <!-- Equipped -->
-                    <div class="col-md">
-                        
-                    </div>
-                    <!-- Inventory -->
-                    <div class="col-md">
-                        <%- include("../parts/inventory") %>
-                    </div>
+                <div class="toast-body" id="liveToastMessage">
+                    Item added to inventory.
                 </div>
-
             </div>
-        </main>
+        </div>
+
+        <!-- Flyout Menus -->
+        <%- include("../parts/character_sheet/equipmentMenu") %>
+            <%- include("../parts/character_sheet/skillMenu") %>
+
+                <!-- Content -->
+                <main class="container min-vh-100 bg-light shadow-lg border-start border-end border-dark-subtle">
+
+                    <div class="container-content">
+
+                        <!-- Info & Abilities -->
+                        <section class="row mb-3 gap-2">
+
+
+                            <div class="col-md-8">
+
+                                <!-- Name & Tagline -->
+                                <div class="row mb-3 align-items-end">
+                                    <div class="col">
+                                        <div class="fs-4 lora-semibold">
+                                            <%= character.name %>
+                                        </div>
+                                        <div class="fst-italic">
+                                            A desperate cutpurse who masks fear with jokes and bravado
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <!-- Lineage -->
+                                <div class="row mb-3">
+                                    <span class="lora-semibold mb-1">
+                                        Lineage
+                                    </span>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Ancestry
+                                        </div>
+                                        Human
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Heritage
+                                        </div>
+                                        Imperial
+                                    </div>
+                                </div>
+
+                                <!-- Background -->
+                                <div class="row mb-3">
+                                    <span class="lora-semibold mb-1">
+                                        Background
+                                    </span>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Legacy
+                                        </div>
+                                        Criminal
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <!-- Abilities -->
+                                <div class="row mb-3">
+                                    <span class="lora-semibold mb-1">
+                                        Abilities
+                                    </span>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Physique
+                                        </div>
+                                        <div class="text-muted">
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Intellect
+                                        </div>
+                                        <div class="text-muted">
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond"></i>
+                                            <i class="bi bi-diamond"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Psyche
+                                        </div>
+                                        <div class="text-muted">
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond"></i>
+                                            <i class="bi bi-diamond"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Approaches -->
+                                <div class="row mb-3">
+                                    <span class="lora-semibold mb-1">
+                                        Approaches
+                                    </span>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Reflex
+                                        </div>
+                                        <div class="text-muted">
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Discipline
+                                        </div>
+                                        <div class="text-muted">
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Resolve
+                                        </div>
+                                        <div class="text-muted">
+                                            <i class="bi bi-diamond-fill"></i>
+                                            <i class="bi bi-diamond"></i>
+                                            <i class="bi bi-diamond"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <!-- Resistances -->
+                                <div class="row">
+                                    <span class="lora-semibold mb-1">
+                                        Resistances
+                                    </span>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Endurance
+                                        </div>
+                                        12
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Focus
+                                        </div>
+                                        10
+                                    </div>
+                                    <div class="col">
+                                        <div class="lora-semibold small">
+                                            Will
+                                        </div>
+                                        10
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Portrait -->
+                            <div class="col-md d-none d-md-block">
+                                <img src="/img/pregen/sample_character.png" class="object-fit-cover h-100 w-100 rounded"
+                                    alt="Character portrait">
+                            </div>
+
+                        </section>
+
+                        <hr>
+
+                        <!-- Loadout -->
+                        <section class="row mb-3 gap-2">
+
+                            <!-- Offense -->
+                            <div class="col-md">
+
+                                <!-- Score -->
+                                <div class="row">
+                                    <div class="col align-self-center">
+                                        <img class="me-1" src="/img/ui/offense.png" height="24px" alt="">
+                                        <span class="lora-semibold align-middle">
+                                            Offense
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <%- include("../parts/character_sheet/weaponGrid") %>
+
+                            </div>
+
+                            <!-- Defense -->
+                            <div class="col-md">
+
+                                <!-- Score -->
+                                <div class="row">
+                                    <div class="col align-self-center">
+                                        <img class="me-1" src="/img/ui/defense.png" height="24px" alt="">
+                                        <span class="lora-semibold align-middle">
+                                            Defense
+                                            &mdash;
+                                            15
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <%- include("../parts/character_sheet/armorGrid") %>
+
+                            </div>
+
+                        </section>
+
+                        <hr>
+
+                        <!-- Inventory -->
+                        <section class="row mb-3">
+
+                            <!-- Skills -->
+                            <div class="col-md">
+                                <%- include("../parts/character_sheet/skillGrid") %>
+                            </div>
+
+                            <!-- Inventory -->
+                            <div class="col-md">
+                                <%- include("../parts/character_sheet/inventoryGrid") %>
+                            </div>
+
+                        </section>
+
+                    </div>
+                </main>
 
 </body>
 
